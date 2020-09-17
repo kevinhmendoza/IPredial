@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3CBBFF90-D7AB-4C0F-9072-49BC604B4A5A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.UseCase</RootNamespace>
+    <AssemblyName>Core.UseCase</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.7.3.4\lib\net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.4.0.1\lib\net45\MediatR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\IFormattedValidationException.cs" />
+    <Compile Include="Base\IGenericRepository.cs" />
+    <Compile Include="Base\IGenericRepositoryQuery.cs" />
+    <Compile Include="Base\IUnitOfWork.cs" />
+    <Compile Include="Contracts\IMapper.cs" />
+    <Compile Include="Contracts\IParamAuditLog.cs" />
+    <Compile Include="Dtos\General\TerceroDto.cs" />
+    <Compile Include="General\ConsultarTerceroByIdentificacionInteractor.cs" />
+    <Compile Include="Security\Auditoria\ConfiguracionAuditoriaInteractor.cs" />
+    <Compile Include="Security\Auditoria\ConsultaAuditoriaInteractor.cs" />
+    <Compile Include="Security\Auditoria\ConsultaDetalleAuditoriaInteractor.cs" />
+    <Compile Include="Dtos\General\EnumerationObject.cs" />
+    <Compile Include="Security\GestionTercero\ConsultarTerceroInteractor.cs" />
+    <Compile Include="Security\GestionTercero\EliminarTerceroInteractor.cs" />
+    <Compile Include="Security\GestionTercero\ModificarTerceroInteractor.cs" />
+    <Compile Include="Security\GestionTercero\RegistrarTerceroInteractor.cs" />
+    <Compile Include="Security\GestionTercero\ConsultarTercerosInteractor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IAuditLogRepository.cs" />
+    <Compile Include="Repositories\ITerceroRepository.cs" />
+    <Compile Include="Util\FactoryValidationResult.cs" />
+    <Compile Include="Util\IInteractor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Entities\Core.Entities.csproj">
+      <Project>{66342902-3b9d-4ab3-996e-7fadaeb6f029}</Project>
+      <Name>Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Audit\Infrastructure.Audit.csproj">
+      <Project>{E2EFF71E-B747-447F-9AC1-B30C37DB547C}</Project>
+      <Name>Infrastructure.Audit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuracion\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
