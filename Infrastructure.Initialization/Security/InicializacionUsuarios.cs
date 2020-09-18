@@ -58,7 +58,7 @@ namespace Infrastructure.Security
                     TerceroId=_tercero.Id,
                     Identificacion=_tercero.Identificacion
                 };
-                IdUserResult = userMgr.Create(appUser, "IPredial2017.");
+                IdUserResult = userMgr.Create(appUser, "IPredial2020.");
 
                 // If the new "Admin" user was successfully created, 
                 // add the "Admin" user to the "Administrator" role. 
