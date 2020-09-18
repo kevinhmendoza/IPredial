@@ -1,5 +1,5 @@
 export class ApisRestBase {
-  public static UrlServer = "http://localhost:8025/";
+  public static UrlServer = "http://localhost:8053/";
 }
 
 export class ApisRestUser extends ApisRestBase {

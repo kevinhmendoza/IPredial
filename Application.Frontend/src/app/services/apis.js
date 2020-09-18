@@ -17,7 +17,7 @@ exports.ApisRestUser = exports.ApisRestBase = void 0;
 var ApisRestBase = /** @class */ (function () {
     function ApisRestBase() {
     }
-    ApisRestBase.UrlServer = "http://localhost:8025/";
+    ApisRestBase.UrlServer = "http://localhost:8053/";
     return ApisRestBase;
 }());
 exports.ApisRestBase = ApisRestBase;
