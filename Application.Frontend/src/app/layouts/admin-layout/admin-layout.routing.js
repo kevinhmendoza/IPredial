@@ -6,7 +6,9 @@ var icons_component_1 = require("../../pages/icons/icons.component");
 var maps_component_1 = require("../../pages/maps/maps.component");
 var tables_component_1 = require("../../pages/tables/tables.component");
 exports.AdminLayoutRoutes = [
-    { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
+    {
+        path: 'dashboard', component: dashboard_component_1.DashboardComponent
+    },
     { path: 'tables', component: tables_component_1.TablesComponent },
     { path: 'icons', component: icons_component_1.IconsComponent },
     { path: 'maps', component: maps_component_1.MapsComponent }

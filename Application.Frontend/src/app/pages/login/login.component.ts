@@ -1,4 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Login } from '../../entities/security/login.component';
+import { AuthService } from '../../services/security/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,11 +9,32 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  constructor() {}
+  login: Login = {
+    grant_type: "password",
+    password: "",
+    username: "",
+    process: false,
+  };
 
-  ngOnInit() {
+  public Year: number;
+
+  constructor(private _service: AuthService, private _router: Router) {
+    if (_service.UserLogged()) { this._router.navigate(['/Home']); }
+    this.Year = new Date().getFullYear();
   }
+
+  ngOnInit(): void {
+    if (this._service.UserLogged()) {
+      this._router.navigate(['/dashboard']);
+    }
+  }
+
   ngOnDestroy() {
+  }
+
+
+  Login(): void {
+    this._service.obtainAccessToken(this.login);
   }
 
 }

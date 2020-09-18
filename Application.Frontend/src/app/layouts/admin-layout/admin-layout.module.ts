@@ -27,7 +27,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TablesComponent,
     IconsComponent,
     MapsComponent
-  ]
+  ],
+  providers:[]
 })
 
 export class AdminLayoutModule {}

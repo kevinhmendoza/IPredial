@@ -3179,7 +3179,7 @@
     <TypeScriptCompile Include="src\app\components\navbar\navbar.component.ts" />
     <TypeScriptCompile Include="src\app\components\sidebar\sidebar.component.spec.ts" />
     <TypeScriptCompile Include="src\app\components\sidebar\sidebar.component.ts" />
-    <TypeScriptCompile Include="src\app\entities\summary.ts" />
+    <TypeScriptCompile Include="src\app\entities\security\login.component.ts" />
     <TypeScriptCompile Include="src\app\layouts\admin-layout\admin-layout.component.spec.ts" />
     <TypeScriptCompile Include="src\app\layouts\admin-layout\admin-layout.component.ts" />
     <TypeScriptCompile Include="src\app\layouts\admin-layout\admin-layout.module.ts" />
@@ -3200,10 +3200,13 @@
     <TypeScriptCompile Include="src\app\pages\register\register.component.ts" />
     <TypeScriptCompile Include="src\app\pages\tables\tables.component.spec.ts" />
     <TypeScriptCompile Include="src\app\pages\tables\tables.component.ts" />
-    <TypeScriptCompile Include="src\app\services\load-data\load-data.service.spec.ts" />
-    <TypeScriptCompile Include="src\app\services\load-data\load-data.service.ts" />
-    <TypeScriptCompile Include="src\app\services\summary-resume\summary-resume.service.spec.ts" />
-    <TypeScriptCompile Include="src\app\services\summary-resume\summary-resume.service.ts" />
+    <TypeScriptCompile Include="src\app\services\http\http.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\services\http\http.service.ts" />
+    <TypeScriptCompile Include="src\app\services\security\auth.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\services\security\auth.service.ts" />
+    <TypeScriptCompile Include="src\app\services\security\sistema.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\services\security\sistema.service.ts" />
+    <TypeScriptCompile Include="src\app\services\apis.ts" />
     <TypeScriptCompile Include="src\app\variables\charts.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />

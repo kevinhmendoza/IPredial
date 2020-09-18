@@ -1,9 +1,8 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Location} from '@angular/common';
 import { Router } from '@angular/router';
-import { Summary } from 'src/app/entities/summary';
-import { SummaryResumeService } from 'src/app/services/summary-resume/summary-resume.service';
+import { SistemaService } from '../../services/security/sistema.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,15 +13,16 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  public Summary: Summary;
   
-  constructor(location: Location,  private element: ElementRef, private router: Router,private _summaryResumeService: SummaryResumeService) {
+  constructor(location: Location,  private _router: Router, private _sistemaService: SistemaService) {
     this.location = location;
   }
 
   ngOnInit() {
     this.listTitles = ROUTES.filter(listTitle => listTitle);
-    this.getData();
+    if (!this._sistemaService.UserLogged()) {
+      this._router.navigate(['/login']);
+    }
   }
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -38,11 +38,13 @@ export class NavbarComponent implements OnInit {
     return 'Dashboard';
   }
 
-  private getData(): void {
-    this._summaryResumeService.GetProfile().subscribe(data => {
-      this.Summary = data;
-    });
+  public getUserName(): string {
+    return this._sistemaService.GetNombreTerceroLogged();
   }
 
+
+  public Logout(): void {
+    this._sistemaService.deleteCookieToken();
+  }
 
 }

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SummaryResumeService } from 'src/app/services/summary-resume/summary-resume.service';
-import { Summary } from 'src/app/entities/summary';
 
 @Component({
   selector: 'app-footer',
@@ -10,16 +8,10 @@ import { Summary } from 'src/app/entities/summary';
 export class FooterComponent implements OnInit {
   test: Date = new Date();
 
-  constructor(private _summaryResumeService: SummaryResumeService) { }
-  public Summary: Summary;
+  constructor() { }
   ngOnInit() {
-    this.getData();
   }
 
-  private getData(): void {
-    this._summaryResumeService.GetProfile().subscribe(data => {
-      this.Summary = data;
-    });
-  }
+
 
 }

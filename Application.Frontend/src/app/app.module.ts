@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { HttpServiceInterceptor } from './services/http/http.service';
+import { SistemaService } from './services/security/sistema.service';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -22,14 +26,35 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      progressBar: true,
+      positionClass: 'toast-bottom-center',
+      //preventDuplicates: true,
+    }),
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'es-CO' // 'de-DE' for Germany, 'fr-FR' for France ...
+    },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpServiceInterceptor,
+      multi: true
+    },
+    SistemaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
