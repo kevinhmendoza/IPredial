@@ -93,6 +93,7 @@
     <Compile Include="Entities\InitialPermissionUser.cs" />
     <Compile Include="IdentityConfig.cs" />
     <Compile Include="Interactors\AsignarPermisoInitialInteractor.cs" />
+    <Compile Include="Interactors\ChangeStateUserInteractor.cs" />
     <Compile Include="Interactors\ConfirmEmailnteractor.cs" />
     <Compile Include="Interactors\CambiarPasswordInteractor.cs" />
     <Compile Include="Interactors\ConsultarUserByTerceroIdInteractor.cs" />
