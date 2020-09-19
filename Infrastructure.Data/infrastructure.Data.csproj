@@ -77,6 +77,10 @@
     <Compile Include="Migrations\202009170306575_InitialCreate.Designer.cs">
       <DependentUpon>202009170306575_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009191619444_AddCamposTercero.cs" />
+    <Compile Include="Migrations\202009191619444_AddCamposTercero.Designer.cs">
+      <DependentUpon>202009191619444_AddCamposTercero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AuditLogRepository.cs" />
@@ -105,6 +109,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202009170306575_InitialCreate.resx">
       <DependentUpon>202009170306575_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009191619444_AddCamposTercero.resx">
+      <DependentUpon>202009191619444_AddCamposTercero.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

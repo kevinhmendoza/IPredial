@@ -40,6 +40,8 @@ namespace Core.UseCase.Security.GestionTercero
 
             _mapper.Map<RegistrarTerceroRequest, Tercero> (request, _TerceroGuardar);
 
+            _TerceroGuardar.AsignarValoresCalculados();
+
             _terceroRepository.Add(_TerceroGuardar);
 
             _iUnitOfWork.Commit(this);

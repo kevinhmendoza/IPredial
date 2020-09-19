@@ -77,6 +77,7 @@ namespace Application.WebApi.Controllers.Security.GestionUsuarios
                 return BadRequest(_responseInteractoRegistrar.Result.ValidationResult.ToText());
             }
 
+            usuarioRegistrar.Tercero.AsignarValoresCalculados(); 
             usuarioRegistrar.Usuario.Identificacion = usuarioRegistrar.Tercero.Identificacion;
             usuarioRegistrar.Usuario.NombreCompleto= usuarioRegistrar.Tercero.NombreCompleto;
             usuarioRegistrar.Usuario.TerceroId = _responseInteractoRegistrar.Result.Tercero.Id;
