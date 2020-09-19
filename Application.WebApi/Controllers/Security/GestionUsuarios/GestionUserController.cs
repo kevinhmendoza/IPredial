@@ -15,6 +15,7 @@ using System.Net.Http;
 using Microsoft.AspNet.Identity.Owin;
 using Core.UseCase.Security.GestionTercero;
 using Infrastructure.System;
+using Infrastructure.Security.Services;
 
 namespace Application.WebApi.Controllers.Security.GestionUsuarios
 {
@@ -98,6 +99,19 @@ namespace Application.WebApi.Controllers.Security.GestionUsuarios
                 return BadRequest($"No se pudo registrar el usuario, {response.Mensaje}"); 
             }
 
+        }
+
+        [Route("ChangeState")]
+        public IHttpActionResult PostCambiarEstadoTerceroAndUser(ChangeStateUserRequest _request)
+        {
+            ChangeStateUserInteractor interactor = new ChangeStateUserInteractor();
+            var response=interactor.Inactive(_request);
+            if (response.Error)
+            {
+                return BadRequest(response.Mensaje);
+            }
+
+            return Ok(response);
         }
 
         private RegisterUserResponse RegistrarUsuarioOwin(RegisterUserViewModel usuarioRegistrar)
