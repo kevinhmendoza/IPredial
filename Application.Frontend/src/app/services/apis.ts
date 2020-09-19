@@ -15,3 +15,13 @@ export class ApisRestGestionUsers extends ApisRestBase {
   public static GetAllUsers = ApisRestBase.UrlServer + "api/User/Get/All";
   public static PostRegisterUser = ApisRestBase.UrlServer + "api/Gestion/User/Register";
 }
+
+export class ApisRestModificarUserAndTercero extends ApisRestBase {
+  public static GetTerceroAndUser = ApisRestModificarUserAndTercero.UrlServer + "api/Modificar/UserWithTercero";
+  public static PostModificarTercero = ApisRestModificarUserAndTercero.UrlServer + "api/Modificar/UserWithTercero";
+}
+
+export class ApisRestCambiarEstadoUserAndTercero extends ApisRestBase {
+  public static GetTerceroAndUser(idTercero): string { return ApisRestCambiarEstadoUserAndTercero.UrlServer + "api/Cambiar/Estado/UserWithTercero" + idTercero; }
+  public static PostModificarTercero = ApisRestCambiarEstadoUserAndTercero.UrlServer + "api/Cambiar/Estado/UserWithTercero";
+}

@@ -8,10 +8,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { IPredialCommonModule } from '../../common/ipredial-common.module';
+import { ModificarUsuarioComponent } from './gestion-usuarios/modificar-usuario/modificar-usuario.component';
 
 
 @NgModule({
-  declarations: [GestionUsuariosComponent],
+  declarations: [GestionUsuariosComponent, ModificarUsuarioComponent],
   imports: [
     CommonModule,
     FormsModule,

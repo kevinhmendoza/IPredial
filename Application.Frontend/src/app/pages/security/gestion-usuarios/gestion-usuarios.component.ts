@@ -83,4 +83,8 @@ export class GestionUsuariosComponent implements OnInit {
     }
   }
 
+  public IrFormularioEditar(user: User): void{
+    this._router.navigate(['/Seguridad/Modificar/User/Tercero/' + user.TerceroId]);
+  }
+
 }

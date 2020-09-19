@@ -13,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApisRestGestionUsers = exports.ApisRestUser = exports.ApisRestBase = void 0;
+exports.ApisRestCambiarEstadoUserAndTercero = exports.ApisRestModificarUserAndTercero = exports.ApisRestGestionUsers = exports.ApisRestUser = exports.ApisRestBase = void 0;
 var ApisRestBase = /** @class */ (function () {
     function ApisRestBase() {
     }
@@ -44,4 +44,24 @@ var ApisRestGestionUsers = /** @class */ (function (_super) {
     return ApisRestGestionUsers;
 }(ApisRestBase));
 exports.ApisRestGestionUsers = ApisRestGestionUsers;
+var ApisRestModificarUserAndTercero = /** @class */ (function (_super) {
+    __extends(ApisRestModificarUserAndTercero, _super);
+    function ApisRestModificarUserAndTercero() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ApisRestModificarUserAndTercero.GetTerceroAndUser = ApisRestModificarUserAndTercero.UrlServer + "api/Modificar/UserWithTercero";
+    ApisRestModificarUserAndTercero.PostModificarTercero = ApisRestModificarUserAndTercero.UrlServer + "api/Modificar/UserWithTercero";
+    return ApisRestModificarUserAndTercero;
+}(ApisRestBase));
+exports.ApisRestModificarUserAndTercero = ApisRestModificarUserAndTercero;
+var ApisRestCambiarEstadoUserAndTercero = /** @class */ (function (_super) {
+    __extends(ApisRestCambiarEstadoUserAndTercero, _super);
+    function ApisRestCambiarEstadoUserAndTercero() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ApisRestCambiarEstadoUserAndTercero.GetTerceroAndUser = function (idTercero) { return ApisRestCambiarEstadoUserAndTercero.UrlServer + "api/Cambiar/Estado/UserWithTercero" + idTercero; };
+    ApisRestCambiarEstadoUserAndTercero.PostModificarTercero = ApisRestCambiarEstadoUserAndTercero.UrlServer + "api/Cambiar/Estado/UserWithTercero";
+    return ApisRestCambiarEstadoUserAndTercero;
+}(ApisRestBase));
+exports.ApisRestCambiarEstadoUserAndTercero = ApisRestCambiarEstadoUserAndTercero;
 //# sourceMappingURL=apis.js.map
