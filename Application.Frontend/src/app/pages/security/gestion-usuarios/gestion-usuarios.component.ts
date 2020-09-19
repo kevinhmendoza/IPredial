@@ -53,6 +53,27 @@ export class GestionUsuariosComponent implements OnInit {
     this.modalRef = this._modalService.show(template, { class: "modal-lg" });
   }
 
+  public ToggleUsuario(user: User): void {
+    this._confirmationDialogService.confirm('Confirmación', "Esta seguro de continuar con el proceso?").subscribe(respuesta => {
+      if (respuesta) {
+        this.disabledButton = true;
+        var estado = "AC";
+        if (user.Estado == "AC") {
+          var estado = "IN";
+        }
+        this._gestionUsersService.ToggleUsuario({ Estado: estado, TerceroId: user.TerceroId, UserName: user.UserName }).subscribe(response => {
+          if (!response.Error) {
+            this._toastr.success(response.Mensaje, "Correcto!");
+            this.ConsultarUsuarios();
+          } else {
+            this._toastr.error(response.Mensaje, "Advertencia!");
+          }
+        }, err => {
+        });
+      }
+    });
+  }
+
   public RegistrarUsuario(user): void {
     this._confirmationDialogService.confirm('Confirmación', "Esta seguro de continuar con el proceso?").subscribe(respuesta => {
       if (respuesta) {

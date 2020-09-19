@@ -41,6 +41,7 @@ var ApisRestGestionUsers = /** @class */ (function (_super) {
     }
     ApisRestGestionUsers.GetAllUsers = ApisRestBase.UrlServer + "api/User/Get/All";
     ApisRestGestionUsers.PostRegisterUser = ApisRestBase.UrlServer + "api/Gestion/User/Register";
+    ApisRestGestionUsers.PostToggleUser = ApisRestBase.UrlServer + "api/Gestion/User/ChangeState";
     return ApisRestGestionUsers;
 }(ApisRestBase));
 exports.ApisRestGestionUsers = ApisRestGestionUsers;

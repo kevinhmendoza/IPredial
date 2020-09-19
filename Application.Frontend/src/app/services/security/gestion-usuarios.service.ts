@@ -22,7 +22,19 @@ export class GestionUsuariosService {
     UtilitiesAnibalService.Console("Registrando Usuario");
     return this._httpService.post<any>(ApisRestGestionUsers.PostRegisterUser, request);
   }
+
+  public ToggleUsuario(request: ToggleUsuarioRequest ): Observable<any> {
+    UtilitiesAnibalService.Console("Inactivar/Desactivar Usuario");
+    return this._httpService.post<any>(ApisRestGestionUsers.PostToggleUser, request);
+  }
 }
+
+export class ToggleUsuarioRequest {
+  public UserName: string;
+  public TerceroId: number;
+  public Estado: string;
+}
+
 
 export class GetAllUsersResponse {
   public Usuarios: Array<User>;

@@ -27,6 +27,7 @@
                 <th scope="col">Correo confirmado</th>
                 <th scope="col">Estado</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -49,8 +50,14 @@
                 <td>
                   {{usuario.Estado}}
                 </td>
-                <td >
-                  <a href="javascript:void(0);" (click)="IrFormularioEditar(usuario)"  class="btn btn-sm btn-neutral">Editar</a>
+                <td>
+                  <a href="javascript:void(0);" (click)="IrFormularioEditar(usuario)" class="btn btn-sm btn-neutral">Editar</a>
+                </td>
+                <td>
+                  <a href="javascript:void(0);" (click)="ToggleUsuario(usuario)" class="btn btn-sm btn-neutral">
+                    <span *ngIf="usuario.Estado=='AC'">Inactivar</span>
+                    <span *ngIf="usuario.Estado!='AC'">Activar</span>
+                  </a>
                 </td>
               </tr>
             </tbody>

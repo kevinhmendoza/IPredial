@@ -14,6 +14,7 @@ export class ApisRestUser extends ApisRestBase {
 export class ApisRestGestionUsers extends ApisRestBase {
   public static GetAllUsers = ApisRestBase.UrlServer + "api/User/Get/All";
   public static PostRegisterUser = ApisRestBase.UrlServer + "api/Gestion/User/Register";
+  public static PostToggleUser = ApisRestBase.UrlServer + "api/Gestion/User/ChangeState";
 }
 
 export class ApisRestModificarUserAndTercero extends ApisRestBase {
