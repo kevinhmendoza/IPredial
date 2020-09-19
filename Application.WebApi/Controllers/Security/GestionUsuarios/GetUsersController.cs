@@ -4,7 +4,7 @@ using System.Web.Http;
 namespace Application.WebApi.Controllers.Security.GestionUsuarios
 {
     [RoutePrefix("api/User")]
-    [Authorize(Roles = "SEGURIDADGestionUsuarios")]
+    [Authorize(Roles = "Seguridad.GestionUsuarios")]
     public class GetUsersController : ApiController
     {
         [Route("Get/All")]
