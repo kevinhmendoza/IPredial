@@ -19,13 +19,13 @@ using Infrastructure.System;
 namespace Application.WebApi.Controllers.Security.GestionUsuarios
 {
     [Authorize]
-    [RoutePrefix("api/User")]
-    public class UserController : ApiController
+    [RoutePrefix("api/Gestion/User")]
+    public class GestionUserController : ApiController
     {
         private readonly IMediator _mediator = null;
         private readonly IMapper _mapper = null;
         private ApplicationUserManager _userManager;
-        public UserController(IMediator mediator, IMapper mapper)
+        public GestionUserController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
             _mapper = mapper;

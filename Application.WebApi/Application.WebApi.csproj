@@ -309,6 +309,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthenticatedUserController.cs" />
     <Compile Include="Controllers\General\GetTerceroByIdentificacionController.cs" />
     <Compile Include="Controllers\Security\Auditoria\AuditoriaController.cs" />
     <Compile Include="Controllers\Security\GestionUsuarios\AsignarPermisoInicialController.cs" />
@@ -317,7 +318,7 @@
     <Compile Include="Controllers\Security\GestionUsuarios\GestionPermisoController.cs" />
     <Compile Include="Controllers\Security\GestionUsuarios\GetUsersController.cs" />
     <Compile Include="Controllers\Security\GestionUsuarios\MofificarUserTerceroController.cs" />
-    <Compile Include="Controllers\Security\GestionUsuarios\UserController.cs" />
+    <Compile Include="Controllers\Security\GestionUsuarios\GestionUserController.cs" />
     <Compile Include="Extensions\FluentModelStateExtenciones.cs" />
     <Compile Include="Extensions\FluentValidacionExtensiones.cs" />
     <Compile Include="Global.asax.cs">

@@ -9,13 +9,16 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { HttpServiceInterceptor } from './services/http/http.service';
+import { HttpServiceInterceptor, HttpService, HttpServiceAllonimous } from './services/http/http.service';
 import { SistemaService } from './services/security/sistema.service';
 import { ToastrModule } from 'ngx-toastr';
+import { SecurityModule } from './pages/security/security.module';
+import { AuthService } from './services/security/auth.service';
 
 
 @NgModule({
@@ -27,12 +30,14 @@ import { ToastrModule } from 'ngx-toastr';
     NgbModule,
     RouterModule,
     AppRoutingModule,
+    SecurityModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       progressBar: true,
       positionClass: 'toast-bottom-center',
       //preventDuplicates: true,
     }),
+    NgxPermissionsModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -53,6 +58,9 @@ import { ToastrModule } from 'ngx-toastr';
       useClass: HttpServiceInterceptor,
       multi: true
     },
+    HttpService,
+    AuthService,
+    HttpServiceAllonimous,
     SistemaService
   ],
   bootstrap: [AppComponent]

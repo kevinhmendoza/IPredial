@@ -2,25 +2,27 @@ import { Component, OnInit} from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location} from '@angular/common';
 import { Router } from '@angular/router';
-import { SistemaService } from '../../services/security/sistema.service';
+import { AuthService } from '../../services/security/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  providers: [AuthService]
 })
 export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  
-  constructor(location: Location,  private _router: Router, private _sistemaService: SistemaService) {
+
+  constructor(location: Location, private _router: Router, private _toastrService: ToastrService, private _authService: AuthService) {
     this.location = location;
   }
 
   ngOnInit() {
     this.listTitles = ROUTES.filter(listTitle => listTitle);
-    if (!this._sistemaService.UserLogged()) {
+    if (!this._authService.UserLogged()) {
       this._router.navigate(['/login']);
     }
   }
@@ -39,12 +41,13 @@ export class NavbarComponent implements OnInit {
   }
 
   public getUserName(): string {
-    return this._sistemaService.GetNombreTerceroLogged();
+    return this._authService.GetNombreTerceroLogged();
   }
 
 
   public Logout(): void {
-    this._sistemaService.deleteCookieToken();
+    this._authService.logout();
   }
+
 
 }

@@ -1,5 +1,5 @@
 ﻿using Core.Entities.Base;
-using System.Collections.Generic;
+using Core.Entities.Enumerations.General;
 
 namespace Core.Entities.General
 {
@@ -16,6 +16,27 @@ namespace Core.Entities.General
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public string CorreoElectronico { get; set; }
-        public string NombreCompleto => $"{Nombres} {Apellidos}".Trim();
+        public string RazonSocial { get; set; }
+        public string NombreCompleto { get; set; }
+
+        public string TipoPersona { get; set; }
+
+        private string CalcularNombreCompleto()
+        {
+            if (TipoPersona == TipoPersonaEnumeration.Natural.Value)
+            {
+                return $"{Nombres} {Apellidos}".ToUpper().Trim();
+            }
+            return RazonSocial?.ToUpper().Trim() ?? "";
+        }
+
+        public void AsignarValoresCalculados()
+        {
+            if (!string.IsNullOrEmpty(Nombres)) { Nombres = Nombres.ToUpper().Trim(); } else { Nombres = null; }
+            if (!string.IsNullOrEmpty(Apellidos)) { Apellidos = Apellidos.ToUpper().Trim(); } else { Apellidos = null; }
+            if (!string.IsNullOrEmpty(RazonSocial)) { RazonSocial = RazonSocial.ToUpper().Trim(); } else { RazonSocial = null; }
+            TipoPersona = TipoIdentificacionEnumeration.IsPersonaJuridica(TipoIdentificacion) ? TipoPersonaEnumeration.Juridica.Value : TipoPersonaEnumeration.Natural.Value;
+            NombreCompleto = CalcularNombreCompleto();
+        }
     }
 }

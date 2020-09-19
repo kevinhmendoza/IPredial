@@ -1,0 +1,70 @@
+<div *ngIf="Tercero">
+
+  <div class="row">
+    <div class="col-lg-3 col-sm-12 col-md-3">
+      <div class="form-group">
+        <label>Tipo Identificacion <span *ngIf="!DeshabilitarInputs">(*)</span></label>
+        <select class="form-control" id="TipoIdentificacion" [disabled]="DeshabilitarInputs" [(ngModel)]="Tercero.TipoIdentificacion" name="TipoIdentificacion" required>
+          <option value="Cedula">Cedula</option>
+          <option value="Nit">Nit</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-12 col-md-3">
+      <div class="form-group">
+        <label *ngIf="Tercero.TipoIdentificacion!='Nit'">Identificación <span *ngIf="!DeshabilitarInputs">(*)</span></label>
+        <label *ngIf="Tercero.TipoIdentificacion=='Nit'">Nit <span *ngIf="!DeshabilitarInputs">(*)</span></label>
+        <input (change)="CambioIdentificacion($event)" type="number" id="Identificacion" [disabled]="DeshabilitarInputs" [(ngModel)]="Tercero.Identificacion" name="Identificacion" required placeholder="{{ Tercero.TipoIdentificacion!='Nit'?'Identificación':'Nit'}}" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-sm-12 col-md-3" *ngIf="Tercero.TipoIdentificacion=='Nit'">
+      <div class="form-group">
+        <label>Razón social <span *ngIf="!DeshabilitarInputs">(*)</span></label>
+        <input type="text" id="RazonSocial" [disabled]="DeshabilitarInputs" [(ngModel)]="Tercero.RazonSocial" name="RazonSocial" required placeholder="Razón social" class="form-control">
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-12 col-md-3" *ngIf="Tercero.TipoIdentificacion!='Nit'">
+      <div class="form-group">
+        <label>Nombres <span *ngIf="!DeshabilitarInputs">(*)</span></label>
+        <input type="text" id="Nombres" [disabled]="DeshabilitarInputs" [(ngModel)]="Tercero.Nombres" name="Nombres" required placeholder="Nombres" class="form-control">
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-12 col-md-3" *ngIf="Tercero.TipoIdentificacion!='Nit'">
+      <div class="form-group">
+        <label>Apellidos <span *ngIf="!DeshabilitarInputs">(*)</span></label>
+        <input type="text" id="Apellidos" [disabled]="DeshabilitarInputs" [(ngModel)]="Tercero.Apellidos" name="Apellidos" required placeholder="Apellidos" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-sm-12 col-md-3" *ngIf="Tercero.TipoIdentificacion!='Nit'">
+      <div class="form-group">
+        <label>Sexo <span *ngIf="!DeshabilitarInputs">(*)</span></label>
+        <select class="form-control" id="Sexo" [disabled]="DeshabilitarInputs" [(ngModel)]="Tercero.Sexo" name="Sexo" required>
+          <option value="M">Hombre</option>
+          <option value="F">Mujer</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-12 col-md-3">
+      <div class="form-group">
+        <label>Movil o Telefono <span *ngIf="!DeshabilitarInputs">(?)</span></label>
+        <input type="number" id="Telefono" [disabled]="DeshabilitarInputs" [(ngModel)]="Tercero.Telefono" name="Telefono" required placeholder="Telefono" class="form-control">
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-12 col-md-3">
+      <div class="form-group">
+        <label>Dirección <span *ngIf="!DeshabilitarInputs">(*)</span></label>
+        <input type="text" id="Direccion" [disabled]="DeshabilitarInputs" [(ngModel)]="Tercero.Direccion" name="Direccion" required placeholder="Dirección" class="form-control">
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-12 col-md-3">
+      <div class="form-group">
+        <label>Correo Electrónico <span *ngIf="!DeshabilitarInputs">(?)</span></label>
+        <input (change)="CambioCorreoElectronico($event)" type="email" id="CorreoElectronico" [disabled]="DeshabilitarInputs" [(ngModel)]="Tercero.CorreoElectronico" name="CorreoElectronico" required placeholder="Correo Electrónico" class="form-control">
+      </div>
+    </div>
+  </div>
+</div>

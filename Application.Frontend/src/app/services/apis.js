@@ -13,11 +13,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApisRestUser = exports.ApisRestBase = void 0;
+exports.ApisRestGestionUsers = exports.ApisRestUser = exports.ApisRestBase = void 0;
 var ApisRestBase = /** @class */ (function () {
     function ApisRestBase() {
     }
-    ApisRestBase.UrlServer = "http://localhost:8053/";
+    ApisRestBase.UrlServer = "http://localhost:59590/";
     return ApisRestBase;
 }());
 exports.ApisRestBase = ApisRestBase;
@@ -34,4 +34,14 @@ var ApisRestUser = /** @class */ (function (_super) {
     return ApisRestUser;
 }(ApisRestBase));
 exports.ApisRestUser = ApisRestUser;
+var ApisRestGestionUsers = /** @class */ (function (_super) {
+    __extends(ApisRestGestionUsers, _super);
+    function ApisRestGestionUsers() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ApisRestGestionUsers.GetAllUsers = ApisRestBase.UrlServer + "api/Gestion/User/Get/All";
+    ApisRestGestionUsers.PostRegisterUser = ApisRestBase.UrlServer + "api/Gestion/User/Register";
+    return ApisRestGestionUsers;
+}(ApisRestBase));
+exports.ApisRestGestionUsers = ApisRestGestionUsers;
 //# sourceMappingURL=apis.js.map

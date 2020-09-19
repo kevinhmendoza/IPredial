@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Login } from '../../entities/security/login.component';
 import { AuthService } from '../../services/security/auth.service';
 import { Router } from '@angular/router';
+import { Login } from '../../entities/security/login';
 
 @Component({
   selector: 'app-login',
