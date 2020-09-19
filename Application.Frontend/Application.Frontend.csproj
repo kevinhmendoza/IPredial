@@ -1762,6 +1762,8 @@
     <Content Include="docs\documentation.html" />
     <Content Include="e2e\protractor.conf.js" />
     <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\common\confirmation-dialog\confirmation-dialog.component.css" />
+    <Content Include="src\app\common\confirmation-dialog\confirmation-dialog.component.html" />
     <Content Include="src\app\common\detalle-tercero\detalle-tercero.component.css" />
     <Content Include="src\app\common\detalle-tercero\detalle-tercero.component.html" />
     <Content Include="src\app\components\footer\footer.component.html" />
@@ -3178,6 +3180,8 @@
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
     <TypeScriptCompile Include="src\app\common\app-load\app-load.service.ts" />
+    <TypeScriptCompile Include="src\app\common\confirmation-dialog\confirmation-dialog.component.ts" />
+    <TypeScriptCompile Include="src\app\common\confirmation-dialog\confirmation-dialog.service.ts" />
     <TypeScriptCompile Include="src\app\common\detalle-tercero\detalle-tercero.component.spec.ts" />
     <TypeScriptCompile Include="src\app\common\detalle-tercero\detalle-tercero.component.ts" />
     <TypeScriptCompile Include="src\app\common\ipredial-common.module.ts" />

@@ -5,12 +5,13 @@ import { ToastrService } from 'ngx-toastr';
 import { ModificarUsuarioService, ModificarUsuarioAndTerceroRequest, TerceroUserUpdate } from '../../../../services/security/modificarusuario/modificar-usuario.service';
 import { Tercero } from '../../../../entities/security/tercero';
 import { User } from '../../../../entities/security/user';
+import { ConfirmationDialogService } from '../../../../common/confirmation-dialog/confirmation-dialog.service';
 
 @Component({
   selector: 'app-modificar-usuario',
   templateUrl: './modificar-usuario.component.html',
   styleUrls: ['./modificar-usuario.component.css'],
-  providers: [ToastrService, ModificarUsuarioService]
+  providers: [ToastrService, ModificarUsuarioService, ConfirmationDialogService]
 })
 export class ModificarUsuarioComponent implements OnInit {
 
@@ -25,7 +26,8 @@ export class ModificarUsuarioComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private _toastr: ToastrService,
-    private _modificarUsuarioService: ModificarUsuarioService
+    private _modificarUsuarioService: ModificarUsuarioService,
+    private _confirmationDialogService: ConfirmationDialogService
   ) { }
 
   ngOnInit() {
@@ -48,16 +50,21 @@ export class ModificarUsuarioComponent implements OnInit {
     setTimeout(() => {
       this.disabledButton = false;
     }, 2500);
-    this._modificarUsuarioService.ModificarTercero(this.Request).subscribe(response => {
-      if (!response.Error) {
-        this._toastr.success(response.Mensaje, "Correcto!");
-        setTimeout(() => {
-          window.history.back();
-        }, 1500);
-      } else {
-        this._toastr.error(response.Mensaje, "Advertencia!");
+    this._confirmationDialogService.confirm('Confirmación', "Esta seguro de continuar con el proceso?").subscribe(respuesta => {
+      if (respuesta) {
+        this._modificarUsuarioService.ModificarTercero(this.Request).subscribe(response => {
+          if (!response.Error) {
+            this._toastr.success(response.Mensaje, "Correcto!");
+            setTimeout(() => {
+              window.history.back();
+            }, 1500);
+          } else {
+            this._toastr.error(response.Mensaje, "Advertencia!");
+          }
+        });
       }
     });
+   
   }
 
 

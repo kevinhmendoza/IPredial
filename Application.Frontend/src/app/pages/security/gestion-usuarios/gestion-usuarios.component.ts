@@ -4,11 +4,13 @@ import { User } from '../../../entities/security/user';
 import { RegistroUsuarioRequest, GestionUsuariosService } from '../../../services/security/gestion-usuarios.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { ConfirmationDialogService } from '../../../common/confirmation-dialog/confirmation-dialog.service';
 
 @Component({
   selector: 'app-gestion-usuarios',
   templateUrl: './gestion-usuarios.component.html',
-  styleUrls: ['./gestion-usuarios.component.css']
+  styleUrls: ['./gestion-usuarios.component.css'],
+  providers: [ConfirmationDialogService]
 })
 export class GestionUsuariosComponent implements OnInit {
 
@@ -17,7 +19,8 @@ export class GestionUsuariosComponent implements OnInit {
     private _gestionUsersService: GestionUsuariosService,
     private _toastr: ToastrService,
     private _modalService: BsModalService,
-    private _router: Router) {
+    private _router: Router,
+    private _confirmationDialogService: ConfirmationDialogService) {
 
   }
 
@@ -37,8 +40,8 @@ export class GestionUsuariosComponent implements OnInit {
     this.CargandoTablaUsuarios = true;
     this._gestionUsersService.GetAllUsuarios().subscribe(response => {
       this.CargandoTablaUsuarios = false;
-        this.Usuarios = response.Usuarios;
-        
+      this.Usuarios = response.Usuarios;
+
     }, err => {
       this.CargandoTablaUsuarios = false;
     });
@@ -47,22 +50,26 @@ export class GestionUsuariosComponent implements OnInit {
 
   public OpenModal(template: TemplateRef<any>) {
     this.disabledButton = false;
-    this.modalRef = this._modalService.show(template, { class:"modal-lg"});
+    this.modalRef = this._modalService.show(template, { class: "modal-lg" });
   }
 
   public RegistrarUsuario(user): void {
-    this.disabledButton = true;
-    this._gestionUsersService.RegistrarUsuario(this.UsuarioRequest).subscribe(response => {
-      this.disabledButton = false;
-      if (!response.Error) {
-        this.modalRef.hide();
-        this._toastr.success(response.Mensaje, "Correcto!");
-        this.ConsultarUsuarios();
-      } else {
-        this._toastr.error(response.Mensaje, "Advertencia!");
+    this._confirmationDialogService.confirm('Confirmación', "Esta seguro de continuar con el proceso?").subscribe(respuesta => {
+      if (respuesta) {
+        this.disabledButton = true;
+        this._gestionUsersService.RegistrarUsuario(this.UsuarioRequest).subscribe(response => {
+          this.disabledButton = false;
+          if (!response.Error) {
+            this.modalRef.hide();
+            this._toastr.success(response.Mensaje, "Correcto!");
+            this.ConsultarUsuarios();
+          } else {
+            this._toastr.error(response.Mensaje, "Advertencia!");
+          }
+        }, err => {
+          this.disabledButton = false;
+        });
       }
-    }, err => {
-      this.disabledButton = false;
     });
   }
 
@@ -83,7 +90,7 @@ export class GestionUsuariosComponent implements OnInit {
     }
   }
 
-  public IrFormularioEditar(user: User): void{
+  public IrFormularioEditar(user: User): void {
     this._router.navigate(['/Seguridad/Modificar/User/Tercero/' + user.TerceroId]);
   }
 
