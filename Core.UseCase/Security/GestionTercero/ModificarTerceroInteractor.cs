@@ -96,7 +96,7 @@ namespace Core.UseCase.Security.GestionTercero
             RuleFor(r => TipoIdentificacionEnumeration.IsValid(r.TipoIdentificacion)).Equal(true).WithMessage("El tipo de identifiación no es valido");
             RuleFor(r => r.Nombres).NotEmpty().WithMessage("Debe especificar los nombres del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
             RuleFor(r => r.Apellidos).NotEmpty().WithMessage("Debe especificar los apellidos del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
-            RuleFor(r => r.RazonSocial).NotEmpty().WithMessage("Debe especificar la razón social del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
+            RuleFor(r => r.RazonSocial).NotEmpty().WithMessage("Debe especificar la razón social del tercero").When(t => TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
             RuleFor(r => r.Direccion).NotEmpty().WithMessage("Debe especificar la dirección del tercero");
             RuleFor(r => r.Sexo).NotEmpty().WithMessage("Debe especificar el genero del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
             RuleFor(t => TerceroExiste(t.Id)).NotNull().WithMessage("No se encontro el tercero").When(t => t.Id > 0);

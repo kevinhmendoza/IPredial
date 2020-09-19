@@ -34,6 +34,12 @@ namespace Application.WebApi.Providers
 
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
 
+            if (user.Estado!="AC")
+            {
+                context.SetError("invalid_grant", "El usuario no se encuentra activo!!.");
+                return;
+            }
+
             if (user == null)
             {
                 context.SetError("invalid_grant", "El nombre de usuario o la contraseña no son correctos.");

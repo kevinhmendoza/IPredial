@@ -76,7 +76,7 @@ namespace Infrastructure.Security.Interactors
             string text = File.ReadAllText(filePath);
             text = text.Replace("{{Usuario.NombreCompleto}}", usuario.NombreCompleto);
             text = text.Replace("{{Usuario.UserName}}", usuario.UserName);
-            text = text.Replace("{{Usuario.UserName}}", usuario.UserName);
+            text = text.Replace("{{Usuario.Password}}", usuario.Password);
             text = text.Replace("{{UrlConfirmarUsuario}}", urlCallback);
             return text;
         }
