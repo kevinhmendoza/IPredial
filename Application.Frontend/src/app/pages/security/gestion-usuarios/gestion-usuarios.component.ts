@@ -47,7 +47,7 @@ export class GestionUsuariosComponent implements OnInit {
 
   public OpenModal(template: TemplateRef<any>) {
     this.disabledButton = false;
-    this.modalRef = this._modalService.show(template);
+    this.modalRef = this._modalService.show(template, { class:"modal-lg"});
   }
 
   public RegistrarUsuario(user): void {

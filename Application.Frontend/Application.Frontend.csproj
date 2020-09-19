@@ -3178,6 +3178,7 @@
     <TypeScriptCompile Include="src\app\common\app-load\app-load.service.ts" />
     <TypeScriptCompile Include="src\app\common\detalle-tercero\detalle-tercero.component.spec.ts" />
     <TypeScriptCompile Include="src\app\common\detalle-tercero\detalle-tercero.component.ts" />
+    <TypeScriptCompile Include="src\app\common\ipredial-common.module.ts" />
     <TypeScriptCompile Include="src\app\components\components.module.spec.ts" />
     <TypeScriptCompile Include="src\app\components\components.module.ts" />
     <TypeScriptCompile Include="src\app\components\footer\footer.component.spec.ts" />

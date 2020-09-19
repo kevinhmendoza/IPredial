@@ -40,7 +40,7 @@ var ApisRestGestionUsers = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     ApisRestGestionUsers.GetAllUsers = ApisRestBase.UrlServer + "api/User/Get/All";
-    ApisRestGestionUsers.PostRegisterUser = ApisRestBase.UrlServer + "api/User/Register";
+    ApisRestGestionUsers.PostRegisterUser = ApisRestBase.UrlServer + "api/Gestion/User/Register";
     return ApisRestGestionUsers;
 }(ApisRestBase));
 exports.ApisRestGestionUsers = ApisRestGestionUsers;
