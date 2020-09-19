@@ -96,36 +96,29 @@
           </a>
         </li>
       </ul>-->
-      <ul class="navbar-nav">
-        <li *ngFor="let modulo of Modulos" [ngClass]="{active: activeRoute(modulo.Modulo)}" id="LiModulo-{{modulo.Modulo}}">
+      <!--<ul class="navbar-nav">
+        <li  [ngClass]="{active: activeRoute(modulo.Modulo)}" id="LiModulo-{{modulo.Modulo}}">
           <a (click)="AbrirMenu(modulo)"><i class="{{modulo.Icono}}"></i> <span class="nav-label">{{modulo.Titulo}}</span> <span class="fa arrow"></span> </a>
           <ul class="nav nav-second-level collapse" id="UlModulo-{{modulo.Modulo}}" [ngClass]="{in: activeRoute(modulo.Modulo)}">
             <li *ngFor="let submenu of modulo.SubMenu" [ngClass]="{active: activeRoute(submenu.Modulo)}"><a [routerLink]="[submenu.Url]" (click)="CambiarTitle(submenu)">{{submenu.Titulo}}</a></li>
           </ul>
         </li>
-      </ul>
-        <!-- Divider
+      </ul>-->
+      <!--   Divider-->
     <hr class="my-3">
-    Heading
-    <h6 class="navbar-heading text-muted">Documentation</h6>
-    Navigation
-    <ul class="navbar-nav mb-md-3">
-      <li class="nav-item">
-        <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard-angular/documentation/tutorial">
-          <i class="ni ni-spaceship"></i> Getting started
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard-angular/documentation/colors">
-          <i class="ni ni-palette"></i> Foundation
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard-angular/documentation/alerts">
-          <i class="ni ni-ui-04"></i> Components
-        </a>
-      </li>
-    </ul>-->
+    <div *ngFor="let modulo of Modulos">
+      <h6 class="navbar-heading text-muted">{{modulo.Titulo}}</h6>
+      <!--Navigation-->
+      <ul class="navbar-nav mb-md-3">
+        <li class="nav-item" *ngFor="let submenu of modulo.SubMenu" >
+          <a class="nav-link" [ngClass]="{active: activeRoute(submenu.Modulo)}" [routerLink]="[submenu.Url]" (click)="CambiarTitle(submenu)">
+            <i class="ni ni-palette"></i> {{submenu.Titulo}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!--Heading-->
+
     </div>
   </div>
 </nav>

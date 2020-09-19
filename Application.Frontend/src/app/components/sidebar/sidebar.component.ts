@@ -8,6 +8,10 @@ import { LoadPermissionAppHelper } from '../../common/app-load/app-load.service'
 import { NgxPermissionsService } from 'ngx-permissions';
 import { Modulos } from '../../entities/security/modulos';
 
+
+declare var jQuery: any;
+declare var $: any;
+
 declare interface RouteInfo {
     path: string;
     title: string;
@@ -69,4 +73,11 @@ export class SidebarComponent implements OnInit, AfterContentInit {
       this.ConsultarPermisos();
     }
   }
+
+activeRoute(routename: string): boolean {
+    let comparacion = this._router.url.indexOf(routename);
+
+    return comparacion > -1;
+  }
+
 }

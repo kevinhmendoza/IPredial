@@ -69,15 +69,15 @@ namespace Infrastructure.Initialization.Modules
                         Rol = "Seguridad.AssignIndexPageToUser",
                         Prioridad = 70,
                     },
-                    new Menu
-                    {
-                        Titulo = "Auditoría",
-                        Descripcion = "Formulario para consultar la auditoría del sistema, todas aquellas acciones que los usuarios realizan en el sistema.",
-                        Habilitado = true,
-                        Modulo = "Auditoria",
-                        Rol = "Seguridad.ConsultaAuditoria",
-                        Prioridad = 100,
-                    }
+                    //new Menu
+                    //{
+                    //    Titulo = "Auditoría",
+                    //    Descripcion = "Formulario para consultar la auditoría del sistema, todas aquellas acciones que los usuarios realizan en el sistema.",
+                    //    Habilitado = true,
+                    //    Modulo = "Auditoria",
+                    //    Rol = "Seguridad.ConsultaAuditoria",
+                    //    Prioridad = 100,
+                    //}
                 }
             };
         }
