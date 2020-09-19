@@ -62,7 +62,7 @@ namespace Application.WebApi.Controllers.Security.GestionUsuarios
         }
 
         [Route("Register")]
-        [Authorize(Roles = "SEGURIDADGestionUsuarios")]
+        [Authorize(Roles = "Seguridad.GestionUsuarios")]
         public IHttpActionResult Post(RegisterUserViewModel usuarioRegistrar)
         {
             RegistrarTerceroRequest _request = new RegistrarTerceroRequest();
