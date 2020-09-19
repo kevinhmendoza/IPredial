@@ -11,7 +11,7 @@ using Application.WebApi.ViewModels.Security.GestionUsuarios;
 namespace Application.WebApi.Controllers.Security.GestionUsuarios
 {
     [RoutePrefix("api/Modificar/UserWithTercero")]
-    [Authorize(Roles = "SEGURIDADModifiedTerceroAndUser")]
+    [Authorize(Roles = "Seguridad.ModifiedTerceroAndUser")]
     public class MofificarUserTerceroController : ApiController
     {
         private readonly IMediator _mediator = null;
@@ -65,7 +65,7 @@ namespace Application.WebApi.Controllers.Security.GestionUsuarios
             {
                 _response.Mensaje = _responseInteractor.Result.Mensaje;
                 ModificarDatosTerceroUserInteractor _interactorModificarUser = new ModificarDatosTerceroUserInteractor();
-                ModificarDatosTerceroUserResponse _responseModificarUser = _interactorModificarUser.ModificarUsuario(_request.TerceroId,_request.NombreCompleto,_request.Identificacion, _request.UserName,_request.Email);
+                ModificarDatosTerceroUserResponse _responseModificarUser = _interactorModificarUser.ModificarUsuario(_request.TerceroId, _responseInteractor.Result.Tercero.NombreCompleto, _responseInteractor.Result.Tercero.Identificacion, _request.UserName,_request.Email);
                 if (_responseModificarUser.Error)
                 {
                     _response.EstablecerError(_responseModificarUser.Mensaje);
