@@ -20,8 +20,8 @@ namespace Infrastructure.Initialization.Modules
                         Titulo = "Usuarios",
                         Descripcion = "Formulario para registrar modificar y consular los usuarios registrados en el sistema.",
                         Habilitado = true,
-                        Modulo = "Registro/Usuario",
-                        Rol = "SEGURIDADGestionUsuarios",
+                        Modulo = "Gestion/Usuario",
+                        Rol = "Seguridad.GestionUsuarios",
                         Prioridad = 100,
                     },
                     new Menu
@@ -30,7 +30,7 @@ namespace Infrastructure.Initialization.Modules
                         Descripcion = "Permiso creado para asignar o quitar los permisos a los usuarios dentro del sistema.",
                         Habilitado = false,
                         Modulo = "-",
-                        Rol = "SEGURIDADPermisosToUser",
+                        Rol = "Seguridad.PermisosToUser",
                         Prioridad = 80,
                     },
                     new Menu
@@ -39,7 +39,7 @@ namespace Infrastructure.Initialization.Modules
                         Descripcion = "Permiso creado para cambiar la contraseña a los usuarios registrados en el sistema.",
                         Habilitado = false,
                         Modulo = "-",
-                        Rol = "SEGURIDADChangePasswordToUser",
+                        Rol = "Seguridad.ChangePasswordToUser",
                         Prioridad = 70,
                     },
                     new Menu
@@ -48,7 +48,7 @@ namespace Infrastructure.Initialization.Modules
                         Descripcion = "Permiso creado para forzar la confirmación de correo electronico a los usuarios registrados en el sistema.",
                         Habilitado = false,
                         Modulo = "-",
-                        Rol = "SEGURIDADForzeEmailConfirmToUser",
+                        Rol = "Seguridad.ForzeEmailConfirmToUser",
                         Prioridad = 70,
                     },
                     new Menu
@@ -57,7 +57,7 @@ namespace Infrastructure.Initialization.Modules
                         Descripcion = "Permiso creado para modificar a los usuarios registrados en el sistema, SOLO su información basica (Tercero).",
                         Habilitado = false,
                         Modulo = "-",
-                        Rol = "SEGURIDADModifiedTerceroAndUser",
+                        Rol = "Seguridad.ModifiedTerceroAndUser",
                         Prioridad = 70,
                     },
                     new Menu
@@ -66,18 +66,18 @@ namespace Infrastructure.Initialization.Modules
                         Descripcion = "Permiso Establecer cual es la pagina de inicio del usuario.",
                         Habilitado = false,
                         Modulo = "-",
-                        Rol = "SEGURIDADAssignIndexPageToUser",
+                        Rol = "Seguridad.AssignIndexPageToUser",
                         Prioridad = 70,
                     },
-                    new Menu
-                    {
-                        Titulo = "Auditoría",
-                        Descripcion = "Formulario para consultar la auditoría del sistema, todas aquellas acciones que los usuarios realizan en el sistema.",
-                        Habilitado = true,
-                        Modulo = "Auditoria",
-                        Rol = "SEGURIDADConsultaAuditoria",
-                        Prioridad = 100,
-                    }
+                    //new Menu
+                    //{
+                    //    Titulo = "Auditoría",
+                    //    Descripcion = "Formulario para consultar la auditoría del sistema, todas aquellas acciones que los usuarios realizan en el sistema.",
+                    //    Habilitado = true,
+                    //    Modulo = "Auditoria",
+                    //    Rol = "Seguridad.ConsultaAuditoria",
+                    //    Prioridad = 100,
+                    //}
                 }
             };
         }

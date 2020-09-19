@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { SistemaService } from './sistema.service';
-import { Login } from '../../entities/security/login.component';
 import { ApisRestUser } from '../apis';
+import { Login } from '../../entities/security/login';
 
 @Injectable()
 export class AuthService {

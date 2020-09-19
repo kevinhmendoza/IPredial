@@ -54,6 +54,7 @@
     <Compile Include="Enumerations\General\TipoIdentificacionEnumeration.cs" />
     <Compile Include="Enumerations\General\ModulesEnumeration.cs" />
     <Compile Include="Enumerations\General\AccionEnumeration.cs" />
+    <Compile Include="Enumerations\General\TipoPersonaEnumeration.cs" />
     <Compile Include="General\Tercero.cs" />
     <Compile Include="Headspring\Enumeration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

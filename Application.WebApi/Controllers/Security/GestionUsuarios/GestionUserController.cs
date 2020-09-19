@@ -19,13 +19,13 @@ using Infrastructure.System;
 namespace Application.WebApi.Controllers.Security.GestionUsuarios
 {
     [Authorize]
-    [RoutePrefix("api/User")]
-    public class UserController : ApiController
+    [RoutePrefix("api/Gestion/User")]
+    public class GestionUserController : ApiController
     {
         private readonly IMediator _mediator = null;
         private readonly IMapper _mapper = null;
         private ApplicationUserManager _userManager;
-        public UserController(IMediator mediator, IMapper mapper)
+        public GestionUserController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
             _mapper = mapper;
@@ -77,8 +77,8 @@ namespace Application.WebApi.Controllers.Security.GestionUsuarios
                 return BadRequest(_responseInteractoRegistrar.Result.ValidationResult.ToText());
             }
 
-            usuarioRegistrar.Usuario.Identificacion = usuarioRegistrar.Tercero.Identificacion;
-            usuarioRegistrar.Usuario.NombreCompleto= usuarioRegistrar.Tercero.NombreCompleto;
+            usuarioRegistrar.Usuario.Identificacion = _responseInteractoRegistrar.Result.Tercero.Identificacion;
+            usuarioRegistrar.Usuario.NombreCompleto= _responseInteractoRegistrar.Result.Tercero.NombreCompleto;
             usuarioRegistrar.Usuario.TerceroId = _responseInteractoRegistrar.Result.Tercero.Id;
             usuarioRegistrar.Usuario.FechaDesactivacion = new DateTime(ByADateTime.Now.Year,12,31);
 

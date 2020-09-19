@@ -5,8 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { Seguridad } from './routes/security.routing';
 
-const routes: Routes =[
+const routes: Routes = [
+  Seguridad
+  ,
   {
     path: '',
     redirectTo: 'login',

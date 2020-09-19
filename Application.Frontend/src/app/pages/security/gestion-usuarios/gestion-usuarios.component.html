@@ -1,0 +1,111 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0">Usuarios</h3>
+            </div>
+            <div class="col text-right">
+              <a href="javascript:void(0);" (click)="OpenModal(ModalRegistroUsuario)" class="btn btn-sm btn-primary">Nuevo</a>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Usuario</th>
+                <th scope="col">Identificación</th>
+                <th scope="col">Nombre completo</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Correo confirmado</th>
+                <th scope="col">Estado</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let usuario of Usuarios">
+                <td>
+                  {{usuario.UserName}}
+                </td>
+                <td>
+                  {{usuario.Identificacion}}
+                </td>
+                <td>
+                  {{usuario.NombreCompleto}}
+                </td>
+                <td>
+                  {{usuario.Email}}
+                </td>
+                <td>
+                  {{usuario.EmailConfirmed?'SI':'NO'}}
+                </td>
+                <td>
+                  {{usuario.Estado}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #ModalRegistroUsuario>
+  <div class="modal-header bg-primary">
+    <h4 class="modal-title pull-left">Registro de usuario</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form ngNativeValidate #FormRegistroUsuario="ngForm" (ngSubmit)="RegistrarUsuario(FormRegistroUsuario)">
+
+    <div class="modal-body">
+      <div class="row">
+        <app-detalle-tercero [Tercero]="UsuarioRequest.Tercero" [DeshabilitarInputs]="false" (ChangeIdentificacion)="CambioIdentificacion($event)" (ChangeCorreoElectronico)="CambioCorreoElectronico($event)"></app-detalle-tercero>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 col-md-4">
+          <button class="btn btn-primary pull-left" type="button" [disabled]="!UsuarioRequest.Tercero.Identificacion || !UsuarioRequest.Tercero.TipoIdentificacion" (click)="GenerarPassword()"><i class="fa fa-key"></i>&nbsp;Generar contraseña</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 col-md-4">
+          <div class="form-group">
+            <label>Usuario</label>
+            <input type="text" id="Usuario" [(ngModel)]="UsuarioRequest.Usuario.UserName" name="UserName" [disabled]="true" required placeholder="Usuario" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12 col-md-4">
+          <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" id="Password" [(ngModel)]="UsuarioRequest.Usuario.Password" name="Password" required placeholder="Contraseña" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12 col-md-4">
+          <div class="form-group">
+            <label>Confirmar Contraseña</label>
+            <input type="password" id="PasswordConfirm" [(ngModel)]="UsuarioRequest.Usuario.PasswordConfirm" name="PasswordConfirm" required placeholder="Confirme Contraseña" class="form-control">
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 col-md-6">
+          <div class="form-group">
+            <label>Correo Electrónico</label>
+            <input [disabled]="true" type="email" id="Correo" [(ngModel)]="UsuarioRequest.Usuario.Email" name="Email" required placeholder="Correo Electrónico" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary pull-left" type="submit" [disabled]="disabledButton"><i class="fa fa-check"></i>&nbsp;Registrar</button>
+      <button type="button" class="btn btn-default pull-right" (click)="modalRef.hide()">Cerrar</button>
+    </div>
+  </form>
+</ng-template>

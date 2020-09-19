@@ -7,7 +7,7 @@ namespace Infrastructure.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "Infrastructure.Data.IPredialContext";
         }
         protected override void Seed(Infrastructure.Data.CleanArchitectureContext context)

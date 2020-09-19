@@ -1,6 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SistemaService } from '../../services/security/sistema.service';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../services/security/auth.service';
+import { PermissionService } from '../../services/security/permission.service';
+import { LoadPermissionAppHelper } from '../../common/app-load/app-load.service';
+import { NgxPermissionsService } from 'ngx-permissions';
+import { Modulos } from '../../entities/security/modulos';
+
+
+declare var jQuery: any;
+declare var $: any;
 
 declare interface RouteInfo {
     path: string;
@@ -21,23 +31,53 @@ export const ROUTES: RouteInfo[] = [
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
+  providers: [AuthService, PermissionService]
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, AfterContentInit {
 
   public menuItems: any[];
   public isCollapsed = true;
 
-  constructor(private router: Router, private _sistemaService: SistemaService) { }
+  constructor(private _router: Router, private _ngxPermissionsService: NgxPermissionsService, private _toastrService: ToastrService, private _authService: AuthService, private _permissionService: PermissionService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
-    this.router.events.subscribe((event) => {
+    this._router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
   }
 
   public Logout(): void {
-    this._sistemaService.deleteCookieToken();
+    this._authService.logout();
   }
+
+  public Modulos: Array<Modulos> = new Array<Modulos>();
+
+  private ConsultarPermisos() {
+    this._permissionService.GetModulosWithPermission().subscribe(response => {
+      let responseService = LoadPermissionAppHelper.MappedPermission(response, this._authService, this._toastrService);
+      if (responseService) {
+        this.Modulos = responseService.ModulosVisbles;
+        this._ngxPermissionsService.loadPermissions(responseService.Permisos);
+        if (response.PermisoInicial) {
+          this._router.navigate([response.PermisoInicial.Url]);
+        }
+      }
+    });
+
+  }
+
+  ngAfterContentInit() {
+    if (this.Modulos.length <= 0) {
+      this.ConsultarPermisos();
+    }
+  }
+
+activeRoute(routename: string): boolean {
+    let comparacion = this._router.url.indexOf(routename);
+
+    return comparacion > -1;
+  }
+
 }
