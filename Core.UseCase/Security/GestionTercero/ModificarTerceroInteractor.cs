@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Core.UseCase.Base;
 using Core.Entities.Enumerations.General;
 using Core.UseCase.Util;
+using Core.UseCase.Dtos.General;
 
 namespace Core.UseCase.Security.GestionTercero
 {
@@ -36,11 +37,15 @@ namespace Core.UseCase.Security.GestionTercero
 
             _mapper.Map<ModificarTerceroRequest, Tercero>(request, TerceroModificar);
 
-            string _mensaje = $"Se modifico el tercero {TerceroModificar.Nombres} {TerceroModificar.Apellidos} correctamente!";
+            TerceroModificar.AsignarValoresCalculados();
 
             _iUnitOfWork.Commit(this);
 
-            return Task.FromResult(new ModificarTerceroResponse(validationResult, _mensaje));
+            TerceroDto TerceroDto = new TerceroDto();
+
+            _mapper.Map<Tercero, TerceroDto>(TerceroModificar, TerceroDto);
+
+            return Task.FromResult(new ModificarTerceroResponse(validationResult, TerceroDto));
         }
     }
 
@@ -53,16 +58,20 @@ namespace Core.UseCase.Security.GestionTercero
         public string Sexo { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
-        public int TerceroId { get; set; }
+        public int Id { get; set; }
+        public string RazonSocial { get; set; }
+        public string NombreCompleto { get; set; }
+        public string CorreoElectronico { get; set; }
     }
 
     public class ModificarTerceroResponse
     {
         public ValidationResult ValidationResult { get; }
         public string Mensaje { get; set; }
-        public ModificarTerceroResponse(ValidationResult validationResult, string mensaje)
+        public TerceroDto Tercero { get; }
+        public ModificarTerceroResponse(ValidationResult validationResult, TerceroDto Personas)
         {
-            Mensaje = mensaje;
+            Tercero = Personas;
             ValidationResult = validationResult;
         }
         public ModificarTerceroResponse(ValidationResult validationResult)
@@ -79,15 +88,18 @@ namespace Core.UseCase.Security.GestionTercero
         {
             _terceroRepository = terceroRepository;
             RuleFor(r => r.Identificacion).NotEmpty().WithMessage("Debe especificar el número de identificación del tercero");
-            RuleFor(r => r.Nombres).NotEmpty().WithMessage("Debe especificar los nombres del tercero");
-            RuleFor(r => r.Apellidos).NotEmpty().WithMessage("Debe especificar los apellidos del tercero");
+            
             RuleFor(r => r.Direccion).NotEmpty().WithMessage("Debe especificar la dirección del tercero");
-            RuleFor(r => r.Sexo).NotEmpty().WithMessage("Debe especificar el genero del tercero");
             RuleFor(r => r.Telefono).NotEmpty().WithMessage("Debe especificar el telefono del tercero");
             RuleFor(r => r.TipoIdentificacion).NotEmpty().WithMessage("Debe especificar el tipo de identificación del tercero");
-            RuleFor(r => IdentificacionExiste(r.Identificacion, r.TerceroId)).Equal(false).WithMessage("La identificación del tercero ya existe").When(t => !string.IsNullOrEmpty(t.Identificacion));
+            RuleFor(r => IdentificacionExiste(r.Identificacion, r.Id)).Equal(false).WithMessage("La identificación del tercero ya existe").When(t => !string.IsNullOrEmpty(t.Identificacion));
             RuleFor(r => TipoIdentificacionEnumeration.IsValid(r.TipoIdentificacion)).Equal(true).WithMessage("El tipo de identifiación no es valido");
-            RuleFor(t => TerceroExiste(t.TerceroId)).NotNull().WithMessage("No se encontro el tercero").When(t => t.TerceroId > 0);
+            RuleFor(r => r.Nombres).NotEmpty().WithMessage("Debe especificar los nombres del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
+            RuleFor(r => r.Apellidos).NotEmpty().WithMessage("Debe especificar los apellidos del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
+            RuleFor(r => r.RazonSocial).NotEmpty().WithMessage("Debe especificar la razón social del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
+            RuleFor(r => r.Direccion).NotEmpty().WithMessage("Debe especificar la dirección del tercero");
+            RuleFor(r => r.Sexo).NotEmpty().WithMessage("Debe especificar el genero del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
+            RuleFor(t => TerceroExiste(t.Id)).NotNull().WithMessage("No se encontro el tercero").When(t => t.Id > 0);
         }
 
         public Tercero GetTercero()

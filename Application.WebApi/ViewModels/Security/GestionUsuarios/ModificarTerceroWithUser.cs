@@ -4,17 +4,9 @@ using System.Collections.Generic;
 
 namespace Application.WebApi.ViewModels.Security.GestionUsuarios
 {
-    public class ModificarTerceroWithUserRequest
+    public class ModificarTerceroWithUserRequest: TerceroViewModel
     {
-        public string TipoIdentificacion { get; set; }
-        public string Identificacion { get; set; }
-        public string Nombres { get; set; }
-        public string Apellidos { get; set; }
-        public string Sexo { get; set; }
-        public string Telefono { get; set; }
-        public string Direccion { get; set; }
-        public int TerceroId { get; set; }
-        public string NombreCompleto => $"{Nombres} {Apellidos}".Trim();
+        public int TerceroId => Id;
         public string UserName { get; set; }
         public string Email { get; set; }
     }
