@@ -77,9 +77,8 @@ namespace Application.WebApi.Controllers.Security.GestionUsuarios
                 return BadRequest(_responseInteractoRegistrar.Result.ValidationResult.ToText());
             }
 
-            usuarioRegistrar.Tercero.AsignarValoresCalculados(); 
-            usuarioRegistrar.Usuario.Identificacion = usuarioRegistrar.Tercero.Identificacion;
-            usuarioRegistrar.Usuario.NombreCompleto= usuarioRegistrar.Tercero.NombreCompleto;
+            usuarioRegistrar.Usuario.Identificacion = _responseInteractoRegistrar.Result.Tercero.Identificacion;
+            usuarioRegistrar.Usuario.NombreCompleto= _responseInteractoRegistrar.Result.Tercero.NombreCompleto;
             usuarioRegistrar.Usuario.TerceroId = _responseInteractoRegistrar.Result.Tercero.Id;
             usuarioRegistrar.Usuario.FechaDesactivacion = new DateTime(ByADateTime.Now.Year,12,31);
 

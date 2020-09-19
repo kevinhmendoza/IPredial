@@ -64,6 +64,8 @@ namespace Core.UseCase.Security.GestionTercero
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public string CorreoElectronico { get; set; }
+        public string RazonSocial { get; set; }
+
     }
 
     public class RegistrarTerceroResponse
@@ -88,10 +90,11 @@ namespace Core.UseCase.Security.GestionTercero
         {
             _terceroRepository = terceroRepository;
             RuleFor(r => r.Identificacion).NotEmpty().WithMessage("Debe especificar el número de identificación del tercero");
-            RuleFor(r => r.Nombres).NotEmpty().WithMessage("Debe especificar los nombres del tercero");
-            RuleFor(r => r.Apellidos).NotEmpty().WithMessage("Debe especificar los apellidos del tercero");
+            RuleFor(r => r.Nombres).NotEmpty().WithMessage("Debe especificar los nombres del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
+            RuleFor(r => r.Apellidos).NotEmpty().WithMessage("Debe especificar los apellidos del tercero").When(t=> !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
+            RuleFor(r => r.RazonSocial).NotEmpty().WithMessage("Debe especificar la razón social del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
             RuleFor(r => r.Direccion).NotEmpty().WithMessage("Debe especificar la dirección del tercero");
-            RuleFor(r => r.Sexo).NotEmpty().WithMessage("Debe especificar el genero del tercero");
+            RuleFor(r => r.Sexo).NotEmpty().WithMessage("Debe especificar el genero del tercero").When(t => !TipoIdentificacionEnumeration.IsPersonaJuridica(t.TipoIdentificacion));
             RuleFor(r => r.Telefono).NotEmpty().WithMessage("Debe especificar el telefono del tercero");
             RuleFor(r => r.TipoIdentificacion).NotEmpty().WithMessage("Debe especificar el tipo de identificación del tercero");
             RuleFor(r => r.CorreoElectronico).NotEmpty().WithMessage("Debe especificar el correo electronico, es obligatorio para el tercero");
