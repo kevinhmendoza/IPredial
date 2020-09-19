@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClipboardModule } from 'ngx-clipboard';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -16,7 +16,8 @@ import { ClipboardModule } from 'ngx-clipboard';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ClipboardModule
+    ClipboardModule,
+    ModalModule.forRoot(),
   ]
 })
 export class SecurityModule { }

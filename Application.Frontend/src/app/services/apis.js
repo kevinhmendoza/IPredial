@@ -39,8 +39,8 @@ var ApisRestGestionUsers = /** @class */ (function (_super) {
     function ApisRestGestionUsers() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    ApisRestGestionUsers.GetAllUsers = ApisRestBase.UrlServer + "api/Gestion/User/Get/All";
-    ApisRestGestionUsers.PostRegisterUser = ApisRestBase.UrlServer + "api/Gestion/User/Register";
+    ApisRestGestionUsers.GetAllUsers = ApisRestBase.UrlServer + "api/User/Get/All";
+    ApisRestGestionUsers.PostRegisterUser = ApisRestBase.UrlServer + "api/User/Register";
     return ApisRestGestionUsers;
 }(ApisRestBase));
 exports.ApisRestGestionUsers = ApisRestGestionUsers;

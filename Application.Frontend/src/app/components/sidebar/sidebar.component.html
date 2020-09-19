@@ -111,7 +111,7 @@
       <!--Navigation-->
       <ul class="navbar-nav mb-md-3">
         <li class="nav-item" *ngFor="let submenu of modulo.SubMenu" >
-          <a class="nav-link" [ngClass]="{active: activeRoute(submenu.Modulo)}" [routerLink]="[submenu.Url]" (click)="CambiarTitle(submenu)">
+          <a class="nav-link" [ngClass]="{active: activeRoute(submenu.Modulo)}" [routerLink]="[submenu.Url]">
             <i class="ni ni-palette"></i> {{submenu.Titulo}}
           </a>
         </li>

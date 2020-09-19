@@ -19,7 +19,7 @@ namespace Infrastructure.Security.Interactors
 
         public ConsultarUsersResponse ConsultarUsuarios()
         {
-            List<ApplicationUser> Usuarios = _manager.Users.Where(t => t.UserName != "admin").ToList();
+            List<ApplicationUser> Usuarios = _manager.Users.ToList();
             if (!Usuarios.Any())
             {
                 _response.EstablecerError($"No se encontraron usuarios registrados en el sistema");
