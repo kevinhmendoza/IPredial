@@ -48,6 +48,7 @@
     <Compile Include="Base\EventTypeEnumeration.cs" />
     <Compile Include="Base\IAuditableEntity.cs" />
     <Compile Include="Base\IEntity.cs" />
+    <Compile Include="Contracts\IConsultarEstadoCuentaSistemaLocalService.cs" />
     <Compile Include="Contracts\ILogger.cs" />
     <Compile Include="Contracts\ISistema.cs" />
     <Compile Include="Enumerations\General\StatesGeneralEnumeration.cs" />
