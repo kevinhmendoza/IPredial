@@ -1,10 +1,11 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { User } from '../../../entities/security/user';
-import { RegistroUsuarioRequest, GestionUsuariosService } from '../../../services/security/gestion-usuarios.service';
+import { RegistroUsuarioRequest, GestionUsuariosService, UserTable } from '../../../services/security/gestion-usuarios.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { ConfirmationDialogService } from '../../../common/confirmation-dialog/confirmation-dialog.service';
+import { CellClickedTableGeneric } from '../../../common/data-table-generic/data-table-generic.component';
 
 @Component({
   selector: 'app-gestion-usuarios',
@@ -24,6 +25,18 @@ export class GestionUsuariosComponent implements OnInit {
 
   }
 
+  public Columnas: Array<any> = [
+    { title: 'Id', name: 'TerceroId', classNameRow: 'text-right' },
+    { title: 'Identificación', className: 'text-center', classNameRow: 'text-right', name: 'Identificacion' },
+    { title: 'Nombre Completo', name: 'NombreCompleto', },
+    { title: 'Email', name: 'Email' },
+    { title: 'Usuario', name: 'UserName' },
+    { title: 'Correo Confirmado', name: 'CorreoConfirmado', classNameRow: 'text-center', replaceNameInExportFor: 'CorreoConfirmado' },
+    { title: 'Estado', name: 'Estado', classNameRow: 'text-center', replaceNameInExportFor: 'Estado' },
+    { title: '', name: 'ModificarUser' },
+    { title: '', name: 'ToggleUser' },
+  ];
+
   ngOnInit() {
     this.ConsultarUsuarios();
     this.UsuarioRequest.Tercero.Pais = "Colombia";
@@ -31,7 +44,7 @@ export class GestionUsuariosComponent implements OnInit {
   public disabledButton: boolean = false;
   private modalRef: BsModalRef;
 
-  public Usuarios: User[];
+  public Usuarios: UserTable[];
   public CargandoTablaUsuarios: boolean = true;
   public UsuarioRequest: RegistroUsuarioRequest = new RegistroUsuarioRequest();
 
@@ -41,7 +54,18 @@ export class GestionUsuariosComponent implements OnInit {
     this._gestionUsersService.GetAllUsuarios().subscribe(response => {
       this.CargandoTablaUsuarios = false;
       this.Usuarios = response.Usuarios;
-
+      for (let usuario of this.Usuarios) {
+        usuario.ModificarUser = '<a href="javascript:void(0);" class="btn btn-sm btn-neutral">Editar</a>';
+        if (usuario.Estado == "AC") {
+          usuario.ToggleUser = '<a href="javascript:void(0);" class="btn btn-sm btn-neutral">Inactivar</a>';
+        } else {
+          usuario.ToggleUser = '<a href="javascript:void(0);" class="btn btn-sm btn-neutral">Activar</a>';
+        }
+        usuario.CorreoConfirmado = "NO";
+        if (usuario.EmailConfirmed) {
+          usuario.CorreoConfirmado = "SI";
+        }
+      }
     }, err => {
       this.CargandoTablaUsuarios = false;
     });
@@ -53,7 +77,7 @@ export class GestionUsuariosComponent implements OnInit {
     this.modalRef = this._modalService.show(template, { class: "modal-lg" });
   }
 
-  public ToggleUsuario(user: User): void {
+  public ToggleUsuario(user: UserTable): void {
     this._confirmationDialogService.confirm('Confirmación', "Esta seguro de continuar con el proceso?").subscribe(respuesta => {
       if (respuesta) {
         this.disabledButton = true;
@@ -72,6 +96,14 @@ export class GestionUsuariosComponent implements OnInit {
         });
       }
     });
+  }
+
+  public ClickFila(data: CellClickedTableGeneric): any {
+    if (data.Columna === "ModificarUser") {
+      this.IrFormularioEditar(data.Fila);
+    } else if (data.Columna === "ToggleUser") {
+      this.ToggleUsuario(data.Fila);
+    }
   }
 
   public RegistrarUsuario(user): void {

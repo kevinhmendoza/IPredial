@@ -17,51 +17,8 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">Usuario</th>
-                <th scope="col">Identificación</th>
-                <th scope="col">Nombre completo</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Correo confirmado</th>
-                <th scope="col">Estado</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let usuario of Usuarios">
-                <td>
-                  {{usuario.UserName}}
-                </td>
-                <td>
-                  {{usuario.Identificacion}}
-                </td>
-                <td>
-                  {{usuario.NombreCompleto}}
-                </td>
-                <td>
-                  {{usuario.Email}}
-                </td>
-                <td>
-                  {{usuario.EmailConfirmed?'SI':'NO'}}
-                </td>
-                <td>
-                  {{usuario.Estado}}
-                </td>
-                <td>
-                  <a href="javascript:void(0);" (click)="IrFormularioEditar(usuario)" class="btn btn-sm btn-neutral">Editar</a>
-                </td>
-                <td>
-                  <a href="javascript:void(0);" (click)="ToggleUsuario(usuario)" class="btn btn-sm btn-neutral">
-                    <span *ngIf="usuario.Estado=='AC'">Inactivar</span>
-                    <span *ngIf="usuario.Estado!='AC'">Activar</span>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <app-data-table-generic (CellClicked)="ClickFila($event)" [Filas]="Usuarios" [NameReport]="'Informe de usuarios registrados en el sistema'" [ShowLoading]="CargandoTablaUsuarios" [columns]="Columnas"></app-data-table-generic>
+          
         </div>
       </div>
     </div>

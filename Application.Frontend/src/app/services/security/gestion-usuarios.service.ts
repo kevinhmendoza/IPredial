@@ -37,7 +37,13 @@ export class ToggleUsuarioRequest {
 
 
 export class GetAllUsersResponse {
-  public Usuarios: Array<User>;
+  public Usuarios: Array<UserTable>;
+}
+
+export class UserTable extends User {
+  public ModificarUser: string;
+  public ToggleUser: string;
+  public CorreoConfirmado: string;
 }
 
 export class RegistroUsuarioRequest {

@@ -1,0 +1,15 @@
+<div *ngIf="Filas && columns && itemsPerPage " class="" [ngClass]="ShowLoading?'ibox-content sk-loading':''">
+  <div class="row" style="margin-bottom:15px;" *ngIf="representativesSource">
+    <div class="col-md-12" >
+      <a class="btn btn-default pull-right" style="float:right" tabindex="0" (click)="ExportarPdf()" aria-controls="DataTables_Table_0" href="javascript:0;"><span>Pdf</span></a>
+    </div>
+  </div>
+  <div class="row" *ngIf="representativesSource">
+    
+    <div class="col-md-12">
+      <div class="table-responsive " #TABLE #table>
+        <ng2-smart-table [settings]="settings" *ngIf="representativesSource"  [source]="representativesSource"></ng2-smart-table>
+      </div>
+    </div>
+  </div>
+</div>
