@@ -58,7 +58,7 @@
               </div>
             </div>
           </div>
-          <div class="row" *ngIf="EstadoCuenta.length>0">
+          <div class="row" >
             <div class="table-responsive">
               <app-data-table-generic [Filas]="EstadoCuenta" [NameReport]="'Informe de estado de cuenta'" [ShowLoading]="CargandoTablaEstadoCuenta" [columns]="Columnas"></app-data-table-generic>
             </div>

@@ -5,7 +5,6 @@ using FluentValidation.Results;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using Core.UseCase.Dtos.General;
 using System.Collections.Generic;
 using Core.Entities.Contracts;
 
@@ -32,14 +31,10 @@ namespace Core.UseCase.General
             {
 
                 Filtro = request.Filtro,
-                TipoFiltro = request.Filtro
+                TipoFiltro = request.TipoFiltro
             });
 
-            List<ConsultarEstadoCuentaInteractorRequestModelView> EstadoCuenta = new List<ConsultarEstadoCuentaInteractorRequestModelView>();
-
-            _mapper.Map(listEstadoCuenta, EstadoCuenta);
-
-            return Task.FromResult(new ConsultarEstadoCuentaInteractorResponse(validationResult, EstadoCuenta));
+            return Task.FromResult(new ConsultarEstadoCuentaInteractorResponse(validationResult, listEstadoCuenta.EstadoCuenta));
         }
     }
 
@@ -52,8 +47,8 @@ namespace Core.UseCase.General
     public class ConsultarEstadoCuentaInteractorResponse
     {
         public ValidationResult ValidationResult { get; }
-        public List<ConsultarEstadoCuentaInteractorRequestModelView> EstadoCuenta { get; set; }
-        public ConsultarEstadoCuentaInteractorResponse(ValidationResult validationResult, List<ConsultarEstadoCuentaInteractorRequestModelView> estadoCuenta)
+        public List<ConsultarEstadoCuentaSistemaLocalServiceModelView> EstadoCuenta { get; set; }
+        public ConsultarEstadoCuentaInteractorResponse(ValidationResult validationResult, List<ConsultarEstadoCuentaSistemaLocalServiceModelView> estadoCuenta)
         {
             EstadoCuenta = estadoCuenta;
             ValidationResult = validationResult;
@@ -75,28 +70,6 @@ namespace Core.UseCase.General
 
         }
 
-
-    }
-
-    public class ConsultarEstadoCuentaInteractorRequestModelView
-    {
-        public string ReferenciaCatastral { get; set; }
-        public string IdentifiacionPropietario { get; set; }
-        public string Propietario { get; set; }
-        public string Direccion { get; set; }
-        public double Avaluo { get; set; }
-        public decimal AreaTerreno { get; set; }
-        public decimal AreaConstruida { get; set; }
-        public string Clase { get; set; }
-        public int Estrato { get; set; }
-        public string DestinoEconomico { get; set; }
-        public string UsoSuelo { get; set; }
-        public string NumeroLiquidacion { get; set; }
-        public int Vigencia { get; set; }
-        public int Periodo { get; set; }
-        public double ValorCapital { get; set; }
-        public double ValorInteres { get; set; }
-        public double Total => ValorCapital + ValorInteres;
     }
 
 

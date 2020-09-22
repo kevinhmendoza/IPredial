@@ -25,5 +25,11 @@ export class EstadoCuentaRequest {
 
 
 export class EstadoCuentaResponse {
-  public EstadoCuenta: Array<EstadoCuenta>;
+  public EstadoCuenta: Array<EstadoCuentaTable>;
+}
+
+export class EstadoCuentaTable extends EstadoCuenta {
+  public ValorCapitalCurrency: string;
+  public ValorInteresCurrency: string;
+  public TotalCurrency: string;
 }

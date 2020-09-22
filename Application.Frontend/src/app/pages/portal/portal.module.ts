@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { EstadoCuentaComponent } from './estado-cuenta/estado-cuenta.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +18,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ClipboardModule,
     IPredialCommonModule,
     ModalModule.forRoot(),
-  ]
+  ],
+  providers: [CurrencyPipe],
 })
 export class PortalModule { }

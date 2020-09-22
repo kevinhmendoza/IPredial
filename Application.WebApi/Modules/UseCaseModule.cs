@@ -42,6 +42,12 @@ namespace Application.WebApi.Modules
             .AsSelf()
             .InstancePerLifetimeScope();
 
+            builder.RegisterAssemblyTypes(Assembly.Load("Infrastructure.System"))
+           .Where(t => t.Name.EndsWith("Service"))
+           .AsImplementedInterfaces()
+           .AsSelf()
+           .InstancePerLifetimeScope();
+
             builder.Register<SingleInstanceFactory>(ctx =>
             {
                 var c = ctx.Resolve<IComponentContext>();

@@ -1,14 +1,19 @@
 <div *ngIf="Filas && columns && itemsPerPage " class="" [ngClass]="ShowLoading?'ibox-content sk-loading':''">
   <div class="row" style="margin-bottom:15px;" *ngIf="representativesSource">
-    <div class="col-md-12" >
+    <div class="col-md-12">
       <a class="btn btn-default pull-right" style="float:right" tabindex="0" (click)="ExportarPdf()" aria-controls="DataTables_Table_0" href="javascript:0;"><span>Pdf</span></a>
     </div>
   </div>
+  <div _ngcontent-vtm-c168="" class="sk-spinner sk-spinner-double-bounce" style="z-index: 100;" *ngIf="ShowLoading">
+
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+    </div>
+  </div>
   <div class="row" *ngIf="representativesSource">
-    
     <div class="col-md-12">
       <div class="table-responsive " #TABLE #table>
-        <ng2-smart-table [settings]="settings" *ngIf="representativesSource"  [source]="representativesSource"></ng2-smart-table>
+        <ng2-smart-table [settings]="settings" *ngIf="representativesSource" [source]="representativesSource"></ng2-smart-table>
       </div>
     </div>
   </div>

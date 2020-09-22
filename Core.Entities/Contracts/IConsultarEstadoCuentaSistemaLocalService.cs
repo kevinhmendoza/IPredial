@@ -20,7 +20,7 @@ namespace Core.Entities.Contracts
 
     public class ConsultarEstadoCuentaSistemaLocalServiceResponse
     {
-        List<ConsultarEstadoCuentaSistemaLocalServiceModelView> EstadoCuenta { get; set; }
+        public List<ConsultarEstadoCuentaSistemaLocalServiceModelView> EstadoCuenta { get; set; }
         public ConsultarEstadoCuentaSistemaLocalServiceResponse(List<ConsultarEstadoCuentaSistemaLocalServiceModelView>  estadoCuenta)
         {
             EstadoCuenta = estadoCuenta;
