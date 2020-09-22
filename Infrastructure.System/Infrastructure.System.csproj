@@ -58,6 +58,7 @@
     <Compile Include="ByAMapper.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ConsultarEstadoCuentaSistemaLocalService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -59,6 +59,7 @@
     <Compile Include="Contracts\IMapper.cs" />
     <Compile Include="Contracts\IParamAuditLog.cs" />
     <Compile Include="Dtos\General\TerceroDto.cs" />
+    <Compile Include="General\ConsultarEstadoCuentaInteractor.cs" />
     <Compile Include="General\ConsultarTerceroByIdentificacionInteractor.cs" />
     <Compile Include="Security\Auditoria\ConfiguracionAuditoriaInteractor.cs" />
     <Compile Include="Security\Auditoria\ConsultaAuditoriaInteractor.cs" />
