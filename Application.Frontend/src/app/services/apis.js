@@ -13,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApisRestCambiarEstadoUserAndTercero = exports.ApisRestModificarUserAndTercero = exports.ApisRestGestionUsers = exports.ApisRestUser = exports.ApisRestBase = void 0;
+exports.ApisRestEstadoCuenta = exports.ApisRestCambiarEstadoUserAndTercero = exports.ApisRestModificarUserAndTercero = exports.ApisRestGestionUsers = exports.ApisRestUser = exports.ApisRestBase = void 0;
 var ApisRestBase = /** @class */ (function () {
     function ApisRestBase() {
     }
@@ -65,4 +65,13 @@ var ApisRestCambiarEstadoUserAndTercero = /** @class */ (function (_super) {
     return ApisRestCambiarEstadoUserAndTercero;
 }(ApisRestBase));
 exports.ApisRestCambiarEstadoUserAndTercero = ApisRestCambiarEstadoUserAndTercero;
+var ApisRestEstadoCuenta = /** @class */ (function (_super) {
+    __extends(ApisRestEstadoCuenta, _super);
+    function ApisRestEstadoCuenta() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ApisRestEstadoCuenta.PostEstadoCuenta = ApisRestCambiarEstadoUserAndTercero.UrlServer + "api/EstadoCuenta/Consultar";
+    return ApisRestEstadoCuenta;
+}(ApisRestBase));
+exports.ApisRestEstadoCuenta = ApisRestEstadoCuenta;
 //# sourceMappingURL=apis.js.map

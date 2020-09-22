@@ -19,6 +19,7 @@ import { SistemaService } from './services/security/sistema.service';
 import { ToastrModule } from 'ngx-toastr';
 import { SecurityModule } from './pages/security/security.module';
 import { AuthService } from './services/security/auth.service';
+import { PortalModule } from './pages/portal/portal.module';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { AuthService } from './services/security/auth.service';
     RouterModule,
     AppRoutingModule,
     SecurityModule,
+    PortalModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       progressBar: true,

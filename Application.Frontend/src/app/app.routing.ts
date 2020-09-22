@@ -6,13 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { Seguridad } from './routes/security.routing';
+import { Portal } from './routes/portal.routing';
 
 const routes: Routes = [
-  Seguridad
-  ,
+  Seguridad,
+  Portal,
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'Portal/Estado/Cuenta',
     pathMatch: 'full',
   }, {
     path: '',

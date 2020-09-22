@@ -26,3 +26,7 @@ export class ApisRestCambiarEstadoUserAndTercero extends ApisRestBase {
   public static GetTerceroAndUser(idTercero): string { return ApisRestCambiarEstadoUserAndTercero.UrlServer + "api/Cambiar/Estado/UserWithTercero" + idTercero; }
   public static PostModificarTercero = ApisRestCambiarEstadoUserAndTercero.UrlServer + "api/Cambiar/Estado/UserWithTercero";
 }
+
+export class ApisRestEstadoCuenta extends ApisRestBase {
+  public static PostEstadoCuenta = ApisRestCambiarEstadoUserAndTercero.UrlServer + "api/EstadoCuenta/Consultar";
+}
