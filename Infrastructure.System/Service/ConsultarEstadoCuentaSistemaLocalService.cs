@@ -101,6 +101,70 @@ namespace Infrastructure.System.Service
 
             });
 
+            estadoCuenta.Add(new ConsultarEstadoCuentaSistemaLocalServiceModelView
+            {
+                IdentifiacionPropietario = "123456789",
+                AreaConstruida = 225,
+                AreaTerreno = 100,
+                Avaluo = 10000000,
+                Clase = "URBANO",
+                DestinoEconomico = "HABITACIONAL",
+                Direccion = "C 23 15 44",
+                Estrato = 4,
+                NumeroLiquidacion = "20200004",
+                Periodo = 1,
+                Propietario = "Jhon Snow",
+                ReferenciaCatastral = "0001000100010004",
+                UsoSuelo = "",
+                ValorCapital = 150000,
+                ValorInteres = 0,
+                Vigencia = 2020,
+
+
+            });
+            estadoCuenta.Add(new ConsultarEstadoCuentaSistemaLocalServiceModelView
+            {
+                IdentifiacionPropietario = "123456789",
+                AreaConstruida = 230,
+                AreaTerreno = 90,
+                Avaluo = 20000000,
+                Clase = "URBANO",
+                DestinoEconomico = "COMERCIAL",
+                Direccion = "C 23 15 45",
+                Estrato = 5,
+                NumeroLiquidacion = "20190005",
+                Periodo = 1,
+                Propietario = "Jhon Snow",
+                ReferenciaCatastral = "0001000100010005",
+                UsoSuelo = "",
+                ValorCapital = 170000,
+                ValorInteres = 20000,
+                Vigencia = 2019,
+
+
+            });
+            estadoCuenta.Add(new ConsultarEstadoCuentaSistemaLocalServiceModelView
+            {
+                IdentifiacionPropietario = "123456789",
+                AreaConstruida = 230,
+                AreaTerreno = 90,
+                Avaluo = 20000000,
+                Clase = "URBANO",
+                DestinoEconomico = "EDUCATIVO",
+                Direccion = "C 23 15 46",
+                Estrato = 5,
+                NumeroLiquidacion = "20180006",
+                Periodo = 1,
+                Propietario = "Jhon Snow",
+                ReferenciaCatastral = "0001000100010006",
+                UsoSuelo = "",
+                ValorCapital = 300000,
+                ValorInteres = 40000,
+                Vigencia = 2018,
+
+
+            });
+
 
             return estadoCuenta;
         }
