@@ -15,9 +15,9 @@ import { formatCurrency } from '@angular/common';
 })
 export class EstadoCuentaComponent implements OnInit {
   public Request: EstadoCuentaRequest = new EstadoCuentaRequest();
+  
 
-
-  constructor(private _estadoCuentaService: EstadoCuentaService, private _toastr: ToastrService, private cp: CurrencyPipe ) {
+  constructor(private _estadoCuentaService: EstadoCuentaService, private _toastr: ToastrService, private cp: CurrencyPipe) {
   }
 
   ngOnInit(): void {
@@ -43,7 +43,7 @@ export class EstadoCuentaComponent implements OnInit {
     { title: 'Total', name: 'TotalCurrency' }
   ];
 
-
+  public MostrarTabla: boolean = false;
   public CargandoTablaEstadoCuenta: boolean = false;
   public EstadoCuenta: Array<EstadoCuentaTable> = new Array<EstadoCuentaTable>();
   Consultar(): void {
@@ -57,6 +57,7 @@ export class EstadoCuentaComponent implements OnInit {
     }
     this.CargandoTablaEstadoCuenta = true;
     this._estadoCuentaService.GetEstadoCuenta(this.Request).subscribe(response => {
+      this.MostrarTabla = true;
       this.CargandoTablaEstadoCuenta = false;
       this.EstadoCuenta = response.EstadoCuenta;
       const formatter = new Intl.NumberFormat('en-US', {
@@ -70,6 +71,14 @@ export class EstadoCuentaComponent implements OnInit {
         aux.ValorInteresCurrency = formatter.format(aux.ValorInteres)
       }
     });
+  }
+
+
+  LimpiarFiltro(): void {
+
+  
+    this.Request.Filtro = "";
+
   }
 
 }
