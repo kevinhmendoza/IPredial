@@ -17,7 +17,7 @@ exports.ApisRestEstadoCuenta = exports.ApisRestCambiarEstadoUserAndTercero = exp
 var ApisRestBase = /** @class */ (function () {
     function ApisRestBase() {
     }
-    ApisRestBase.UrlServer = "http://localhost:59590/";
+    ApisRestBase.UrlServer = "http://localhost:8053/";
     return ApisRestBase;
 }());
 exports.ApisRestBase = ApisRestBase;
