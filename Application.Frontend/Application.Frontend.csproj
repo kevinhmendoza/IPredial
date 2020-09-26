@@ -215,6 +215,7 @@
     <None Include="src\app\pages\maps\maps.component.scss" />
     <None Include="src\app\pages\register\register.component.scss" />
     <None Include="src\app\pages\tables\tables.component.scss" />
+    <None Include="src\app\services\security\gestionpermisos\gestion-permisos.service.spec.js.map" />
     <None Include="src\assets\fonts\nucleo\nucleo-icons.eot" />
     <None Include="src\assets\fonts\nucleo\nucleo-icons.ttf" />
     <None Include="src\assets\fonts\nucleo\nucleo-icons.woff" />
@@ -1782,11 +1783,14 @@
     <Content Include="src\app\pages\portal\estado-cuenta\estado-cuenta.component.css" />
     <Content Include="src\app\pages\portal\estado-cuenta\estado-cuenta.component.html" />
     <Content Include="src\app\pages\register\register.component.html" />
+    <Content Include="src\app\pages\security\gestion-usuarios\gestion-permisos\gestion-permisos.component.css" />
+    <Content Include="src\app\pages\security\gestion-usuarios\gestion-permisos\gestion-permisos.component.html" />
     <Content Include="src\app\pages\security\gestion-usuarios\gestion-usuarios.component.css" />
     <Content Include="src\app\pages\security\gestion-usuarios\gestion-usuarios.component.html" />
     <Content Include="src\app\pages\security\gestion-usuarios\modificar-usuario\modificar-usuario.component.css" />
     <Content Include="src\app\pages\security\gestion-usuarios\modificar-usuario\modificar-usuario.component.html" />
     <Content Include="src\app\pages\tables\tables.component.html" />
+    <Content Include="src\app\services\security\gestionpermisos\gestion-permisos.service.spec.js" />
     <Content Include="src\assets\fonts\nucleo\nucleo-icons.svg" />
     <Content Include="src\assets\img\brand\argon-white.png" />
     <Content Include="src\assets\img\brand\blue.png" />
@@ -3233,6 +3237,8 @@
     <TypeScriptCompile Include="src\app\pages\portal\portal.module.ts" />
     <TypeScriptCompile Include="src\app\pages\register\register.component.spec.ts" />
     <TypeScriptCompile Include="src\app\pages\register\register.component.ts" />
+    <TypeScriptCompile Include="src\app\pages\security\gestion-usuarios\gestion-permisos\gestion-permisos.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\pages\security\gestion-usuarios\gestion-permisos\gestion-permisos.component.ts" />
     <TypeScriptCompile Include="src\app\pages\security\gestion-usuarios\modificar-usuario\modificar-usuario.component.spec.ts" />
     <TypeScriptCompile Include="src\app\pages\security\gestion-usuarios\modificar-usuario\modificar-usuario.component.ts" />
     <TypeScriptCompile Include="src\app\routes\portal.routing.ts" />
@@ -3244,6 +3250,8 @@
     <TypeScriptCompile Include="src\app\pages\tables\tables.component.ts" />
     <TypeScriptCompile Include="src\app\services\portal\estado-cuenta.service.spec.ts" />
     <TypeScriptCompile Include="src\app\services\portal\estado-cuenta.service.ts" />
+    <TypeScriptCompile Include="src\app\services\security\gestionpermisos\gestion-permisos.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\services\security\gestionpermisos\gestion-permisos.service.ts" />
     <TypeScriptCompile Include="src\app\services\security\modificarusuario\modificar-usuario.service.spec.ts" />
     <TypeScriptCompile Include="src\app\services\security\modificarusuario\modificar-usuario.service.ts" />
     <TypeScriptCompile Include="src\app\services\security\permission.service.spec.ts" />

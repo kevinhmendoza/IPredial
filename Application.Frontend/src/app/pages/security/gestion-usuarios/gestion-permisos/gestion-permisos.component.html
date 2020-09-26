@@ -1,0 +1,79 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0">{{Usuario.NombreCompleto}} - {{Usuario.Identificacion}}</h3>
+            </div>
+            <div class="col text-right">
+              Permisos
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-body">
+            <p class="PaddingMensaje">Seleccione los permisos a los cuales tendra acceso el usuario {{Usuario.UserName}}</p>
+            <div class="row container">
+              <div class="col-lg-4 col-sm-12 col-md-4">
+                <div class="form-group">
+                  <label>Modulos</label>
+                  <select class="form-control" #selectModulos name="Modulos" (change)="GetPermission(selectModulos.value)">
+                    <option *ngFor="let modulo of Modulos" [value]="modulo.MenuId">
+                      {{modulo.Titulo}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-12 col-md-4" style="margin-top: 32px;">
+                <button class="btn btn-primary " (click)="GuardarPermisos()" type="button"><i class="fa fa-save"></i>&nbsp;Guardar</button>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-6">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <span class="pull-right MarginLabel">Permisos</span>
+                </div>
+                <div class="panel-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>
+                            <div class="text-center checkbox checkbox-success">
+                              <input id="seleccionartodos" type="checkbox" [(ngModel)]="selectedAllPermission " (change)="ActualizarPermisos()">
+                              <label for="seleccionartodos"></label>
+                            </div>
+                          </th>
+                          <th class="text-center">Permiso</th>
+                          <th class="text-center">Titulo</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let permiso of Permisos">
+                          <td>
+                            <div class="text-center checkbox checkbox-primary">
+                              <input id="{{permiso.Rol}}" type="checkbox" [(ngModel)]="permiso.hasRol">
+                              <label for="{{permiso.Rol}}"></label>
+                            </div>
+                          </td>
+                          <td>{{permiso.MenuId}}</td>
+                          <td tooltip="{{permiso.Descripcion}}" placement="bottom">{{permiso.Titulo}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

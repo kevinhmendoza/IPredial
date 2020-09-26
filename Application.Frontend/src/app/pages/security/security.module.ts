@@ -9,10 +9,11 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { IPredialCommonModule } from '../../common/ipredial-common.module';
 import { ModificarUsuarioComponent } from './gestion-usuarios/modificar-usuario/modificar-usuario.component';
+import { GestionPermisosComponent } from './gestion-usuarios/gestion-permisos/gestion-permisos.component';
 
 
 @NgModule({
-  declarations: [GestionUsuariosComponent, ModificarUsuarioComponent],
+  declarations: [GestionUsuariosComponent, ModificarUsuarioComponent, GestionPermisosComponent],
   imports: [
     CommonModule,
     FormsModule,
