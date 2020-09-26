@@ -35,6 +35,7 @@ export class GestionUsuariosComponent implements OnInit {
     { title: 'Estado', name: 'Estado', classNameRow: 'text-center', replaceNameInExportFor: 'Estado' },
     { title: '', name: 'ModificarUser' },
     { title: '', name: 'ToggleUser' },
+    { title: '', name: 'PermissionUser' },
   ];
 
   ngOnInit() {
@@ -61,6 +62,7 @@ export class GestionUsuariosComponent implements OnInit {
         } else {
           usuario.ToggleUser = '<a href="javascript:void(0);" class="btn btn-sm btn-neutral">Activar</a>';
         }
+        usuario.PermissionUser = '<a href="javascript:void(0);" class="btn btn-sm btn-neutral">Permisos</a>';
         usuario.CorreoConfirmado = "NO";
         if (usuario.EmailConfirmed) {
           usuario.CorreoConfirmado = "SI";
@@ -103,6 +105,8 @@ export class GestionUsuariosComponent implements OnInit {
       this.IrFormularioEditar(data.Fila);
     } else if (data.Columna === "ToggleUser") {
       this.ToggleUsuario(data.Fila);
+    } else if (data.Columna === "PermissionUser") {
+      this.IrFormularioPermisos(data.Fila);
     }
   }
 
@@ -145,6 +149,10 @@ export class GestionUsuariosComponent implements OnInit {
 
   public IrFormularioEditar(user: User): void {
     this._router.navigate(['/Seguridad/Modificar/User/Tercero/' + user.TerceroId]);
+  }
+
+  public IrFormularioPermisos(user: User): void {
+    this._router.navigate(['/Seguridad/Permisos/User/' + user.UserName]);
   }
 
 }

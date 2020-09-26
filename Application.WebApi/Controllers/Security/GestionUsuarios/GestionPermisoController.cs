@@ -1,12 +1,29 @@
 ﻿using Infrastructure.Initialization.Interactors;
+using Infrastructure.Security.Interactors;
 using System.Web.Http;
 
 namespace Application.WebApi.Controllers.Security.GestionUsuarios
 {
     [RoutePrefix("api/Roles")]
-    [Authorize(Roles = "SEGURIDADPermisosToUser")]
+    [Authorize(Roles = "Seguridad.PermisosToUser")]
     public class GestionPermisoController : ApiController
     {
+        [Route("User/{userName}")]
+        public IHttpActionResult Get(string userName)
+        {
+            ConsultarUserInteractor _interactor = new ConsultarUserInteractor();
+
+            ConsultarUserResponse _rersponse = _interactor.ConsultarUsuario(userName);
+
+            if (!_rersponse.Error)
+            {
+                return Ok(_rersponse);
+            }
+
+            return BadRequest(_rersponse.Mensaje);
+
+        }
+
         [Route("Modules")]
         public ConsultarModulosResponse GetAllModules()
         {

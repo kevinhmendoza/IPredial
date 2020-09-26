@@ -13,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApisRestEstadoCuenta = exports.ApisRestCambiarEstadoUserAndTercero = exports.ApisRestModificarUserAndTercero = exports.ApisRestGestionUsers = exports.ApisRestUser = exports.ApisRestBase = void 0;
+exports.ApisRestGestionPermisos = exports.ApisRestEstadoCuenta = exports.ApisRestCambiarEstadoUserAndTercero = exports.ApisRestModificarUserAndTercero = exports.ApisRestGestionUsers = exports.ApisRestUser = exports.ApisRestBase = void 0;
 var ApisRestBase = /** @class */ (function () {
     function ApisRestBase() {
     }
@@ -74,4 +74,16 @@ var ApisRestEstadoCuenta = /** @class */ (function (_super) {
     return ApisRestEstadoCuenta;
 }(ApisRestBase));
 exports.ApisRestEstadoCuenta = ApisRestEstadoCuenta;
+var ApisRestGestionPermisos = /** @class */ (function (_super) {
+    __extends(ApisRestGestionPermisos, _super);
+    function ApisRestGestionPermisos() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ApisRestGestionPermisos.GetModules = ApisRestGestionPermisos.UrlServer + "api/Roles/Modules";
+    ApisRestGestionPermisos.PostGetPermission = ApisRestGestionPermisos.UrlServer + "api/Roles/Get/Permission";
+    ApisRestGestionPermisos.PostGestionPermission = ApisRestGestionPermisos.UrlServer + "api/Roles/Set/Permission";
+    ApisRestGestionPermisos.GetUser = ApisRestGestionPermisos.UrlServer + "api/Roles/User";
+    return ApisRestGestionPermisos;
+}(ApisRestBase));
+exports.ApisRestGestionPermisos = ApisRestGestionPermisos;
 //# sourceMappingURL=apis.js.map

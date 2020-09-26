@@ -43,6 +43,7 @@ export class GetAllUsersResponse {
 export class UserTable extends User {
   public ModificarUser: string;
   public ToggleUser: string;
+  public PermissionUser: string;
   public CorreoConfirmado: string;
 }
 
