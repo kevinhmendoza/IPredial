@@ -33,24 +33,24 @@ namespace Infrastructure.Initialization.Modules
                         Rol = "Seguridad.PermisosToUser",
                         Prioridad = 80,
                     },
-                    new Menu
-                    {
-                        Titulo = "Cambiar Contraseña",
-                        Descripcion = "Permiso creado para cambiar la contraseña a los usuarios registrados en el sistema.",
-                        Habilitado = false,
-                        Modulo = "-",
-                        Rol = "Seguridad.ChangePasswordToUser",
-                        Prioridad = 70,
-                    },
-                    new Menu
-                    {
-                        Titulo = "Confirmar Correo",
-                        Descripcion = "Permiso creado para forzar la confirmación de correo electronico a los usuarios registrados en el sistema.",
-                        Habilitado = false,
-                        Modulo = "-",
-                        Rol = "Seguridad.ForzeEmailConfirmToUser",
-                        Prioridad = 70,
-                    },
+                    //new Menu
+                    //{
+                    //    Titulo = "Cambiar Contraseña",
+                    //    Descripcion = "Permiso creado para cambiar la contraseña a los usuarios registrados en el sistema.",
+                    //    Habilitado = false,
+                    //    Modulo = "-",
+                    //    Rol = "Seguridad.ChangePasswordToUser",
+                    //    Prioridad = 70,
+                    //},
+                    //new Menu
+                    //{
+                    //    Titulo = "Confirmar Correo",
+                    //    Descripcion = "Permiso creado para forzar la confirmación de correo electronico a los usuarios registrados en el sistema.",
+                    //    Habilitado = false,
+                    //    Modulo = "-",
+                    //    Rol = "Seguridad.ForzeEmailConfirmToUser",
+                    //    Prioridad = 70,
+                    //},
                     new Menu
                     {
                         Titulo = "Modificar Usuario",
@@ -60,15 +60,15 @@ namespace Infrastructure.Initialization.Modules
                         Rol = "Seguridad.ModifiedTerceroAndUser",
                         Prioridad = 70,
                     },
-                    new Menu
-                    {
-                        Titulo = "Asignar Pagina Inició",
-                        Descripcion = "Permiso Establecer cual es la pagina de inicio del usuario.",
-                        Habilitado = false,
-                        Modulo = "-",
-                        Rol = "Seguridad.AssignIndexPageToUser",
-                        Prioridad = 70,
-                    },
+                    //new Menu
+                    //{
+                    //    Titulo = "Asignar Pagina Inició",
+                    //    Descripcion = "Permiso Establecer cual es la pagina de inicio del usuario.",
+                    //    Habilitado = false,
+                    //    Modulo = "-",
+                    //    Rol = "Seguridad.AssignIndexPageToUser",
+                    //    Prioridad = 70,
+                    //},
                     //new Menu
                     //{
                     //    Titulo = "Auditoría",

@@ -31,7 +31,6 @@ namespace Infrastructure.Initialization
         private void Seguridad()
         {
             Menus.Add(new ModuloSeguridad().Menu());
-            Menus.Add(new ModuloConfiguracion().Menu());
         }
     }
     public class Menu

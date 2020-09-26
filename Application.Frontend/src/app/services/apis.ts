@@ -1,5 +1,5 @@
 export class ApisRestBase {
-  public static UrlServer = "http://localhost:8053/";
+  public static UrlServer = "http://localhost:59590/";
 }
 
 export class ApisRestUser extends ApisRestBase {
@@ -30,3 +30,11 @@ export class ApisRestCambiarEstadoUserAndTercero extends ApisRestBase {
 export class ApisRestEstadoCuenta extends ApisRestBase {
   public static PostEstadoCuenta = ApisRestCambiarEstadoUserAndTercero.UrlServer + "api/EstadoCuenta/Consultar";
 }
+
+export class ApisRestGestionPermisos extends ApisRestBase {
+  public static GetModules = ApisRestGestionPermisos.UrlServer + "api/Roles/Modules";
+  public static PostGetPermission = ApisRestGestionPermisos.UrlServer + "api/Roles/Get/Permission";
+  public static PostGestionPermission = ApisRestGestionPermisos.UrlServer + "api/Roles/Set/Permission";
+  public static GetUser = ApisRestGestionPermisos.UrlServer + "api/Roles/User";
+}
+
