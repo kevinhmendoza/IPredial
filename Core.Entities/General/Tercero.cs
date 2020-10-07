@@ -35,7 +35,9 @@ namespace Core.Entities.General
             if (!string.IsNullOrEmpty(Nombres)) { Nombres = Nombres.ToUpper().Trim(); } else { Nombres = null; }
             if (!string.IsNullOrEmpty(Apellidos)) { Apellidos = Apellidos.ToUpper().Trim(); } else { Apellidos = null; }
             if (!string.IsNullOrEmpty(RazonSocial)) { RazonSocial = RazonSocial.ToUpper().Trim(); } else { RazonSocial = null; }
-            TipoPersona = TipoIdentificacionEnumeration.IsPersonaJuridica(TipoIdentificacion) ? TipoPersonaEnumeration.Juridica.Value : TipoPersonaEnumeration.Natural.Value;
+            TipoPersona = TipoIdentificacionEnumeration.IsPersonaJuridica(TipoIdentificacion) ? 
+                TipoPersonaEnumeration.Juridica.Value : 
+                TipoPersonaEnumeration.Natural.Value;
             NombreCompleto = CalcularNombreCompleto();
         }
     }

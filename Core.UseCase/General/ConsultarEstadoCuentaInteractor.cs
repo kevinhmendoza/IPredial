@@ -15,7 +15,8 @@ namespace Core.UseCase.General
         private readonly IValidator<ConsultarEstadoCuentaInteractorRequest> _validator;
         private readonly IMapper _mapper;
         private readonly IConsultarEstadoCuentaSistemaLocalService _consultarEstadoCuentaSistemaLocalService;
-        public ConsultarEstadoCuentaInteractor(IValidator<ConsultarEstadoCuentaInteractorRequest> validator, IMapper mapper, IConsultarEstadoCuentaSistemaLocalService consultarEstadoCuentaSistemaLocalService)
+        public ConsultarEstadoCuentaInteractor(IValidator<ConsultarEstadoCuentaInteractorRequest> validator, IMapper mapper, 
+            IConsultarEstadoCuentaSistemaLocalService consultarEstadoCuentaSistemaLocalService)
         {
             _validator = validator;
             _mapper = mapper;
