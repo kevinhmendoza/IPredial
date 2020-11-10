@@ -2,6 +2,8 @@
 using Domain.Contracts;
 using Domain.Service;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Domain.Console
 {
@@ -9,18 +11,77 @@ namespace Domain.Console
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine($"PATRON SINGLETON");
-            PatronSingleton("Direccion", "C 23 15 41");
-            PatronSingleton("Identificacion", "1065654796");
-            System.Console.WriteLine($"PATRON BUILDER");
-            PatronBuilder();
+            var tercero = PatronBuilder();
+
+            var recibo1 = PatronFactory(tercero, "Direccion", "C 23 15 41");
+            System.Console.ForegroundColor = System.ConsoleColor.White;
+            if (recibo1 != null) { recibo1.Pagar(new NotificarPagoMockService(), DateTime.Now, "PSE"); }
+            var recibo2 = PatronFactory(tercero, "Identificacion", "1065654796");
+            System.Console.ForegroundColor = System.ConsoleColor.White;
+            if (recibo2 != null) { recibo1.Pagar(new NotificarPagoMockService(), DateTime.Now, "TARJETA DE CREDITO"); }
+
+            System.Console.ForegroundColor = System.ConsoleColor.Red;
+            System.Console.WriteLine($"FIN PROCESO");
+            System.Console.ReadLine();
         }
 
-        private static void PatronSingleton(string tipo, string filtro)
+        private static ReciboPago PatronFactory(Tercero tercero, string tipo, string filtro)
         {
+            System.Console.ForegroundColor = System.ConsoleColor.Yellow;
+            System.Console.WriteLine($"PATRON FACTORY");
+            var estadoCuenta = PatronSingleton(tipo, filtro);
+            System.Console.ForegroundColor = System.ConsoleColor.Yellow;
+            IReciboPagoFactoryService reciboPagoFactoryService;
+            if (!estadoCuenta.Any())
+            {
+                System.Console.WriteLine($"NO SE ENCONTRO INFORMACIÓN");
+                System.Console.ReadLine();
+                return null;
+            }
+            if (estadoCuenta.Count == 1)
+            {
+                reciboPagoFactoryService = new GenerarReciboPagoIndividualService();
+            }
+            else
+            {
+                reciboPagoFactoryService = new GenerarReciboPagoMultipleService();
+            }
+            var reciboPago = reciboPagoFactoryService.GenerarReciboPago(tercero, estadoCuenta);
+
+            System.Console.WriteLine($"SE GENERO EL RECIBO DE PAGO!!!");
+            System.Console.WriteLine($"Numero {reciboPago.Numero}");
+            System.Console.WriteLine($"Identificacion {reciboPago.Identificacion}");
+            System.Console.WriteLine($"NombreCompleto {reciboPago.NombreCompleto}");
+            System.Console.WriteLine($"Referencia Catastral {reciboPago.ReferenciaCatastral}");
+            System.Console.WriteLine($"Direccion Predio {reciboPago.DireccionPredio}");
+            System.Console.WriteLine($"Direccion Propietario {reciboPago.DireccionPropietario}");
+            System.Console.WriteLine($"Avaluo Predio {reciboPago.AvaluoPredio}");
+            System.Console.WriteLine($"Tipo Predio {reciboPago.TipoPredio}");
+            System.Console.WriteLine($"Area Terreno {reciboPago.AreaTerreno}");
+            System.Console.WriteLine($"Total Capital {reciboPago.TotalCapital}");
+            System.Console.WriteLine($"Total Interes {reciboPago.TotalInteres}");
+            System.Console.WriteLine($"Estado {reciboPago.Estado}");
+            System.Console.WriteLine($"Fecha Pago {reciboPago.FechaPago}");
+            System.Console.WriteLine($"Fecha LimitePago {reciboPago.FechaLimitePago}");
+            System.Console.WriteLine($"Total {reciboPago.Total}");
+            System.Console.WriteLine($"Periodos {reciboPago.Periodos}");
+
+            System.Console.ReadLine();
+            return reciboPago;
+        }
+
+        private static IReciboPagoFactoryService GenerarReciboPagoIndividualService()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static List<ConsultarEstadoCuentaSistemaLocalServiceModelView> PatronSingleton(string tipo, string filtro)
+        {
+            System.Console.ForegroundColor = System.ConsoleColor.Green;
+            System.Console.WriteLine($"PATRON SINGLETON");
             System.Console.WriteLine($"-----------------FILTRO POR {tipo.ToUpper()}: {filtro}--------------------");
             IConsultarEstadoCuentaSistemaLocalService service = ConsultarEstadoCuentaSistemaLocalSingletonService.GetInstance();
-            var respuesta=service.ConsultarEstadoCuenta(new ConsultarEstadoCuentaSistemaLocalServiceRequest
+            var respuesta = service.ConsultarEstadoCuenta(new ConsultarEstadoCuentaSistemaLocalServiceRequest
             {
                 Filtro = filtro,
                 TipoFiltro = tipo
@@ -46,12 +107,15 @@ namespace Domain.Console
                 System.Console.WriteLine($"Total {resultado.Total}");
                 System.Console.WriteLine("*********************************************");
             }
-            System.Console.WriteLine("-----------------PULSE UNA TECLA PARA TERMINAR--------------------");
+            System.Console.WriteLine("-----------------PULSE UNA TECLA PARA CONTINUAR--------------------");
             System.Console.ReadLine();
+            return respuesta.EstadoCuenta;
         }
 
-        private static void PatronBuilder()
+        private static Tercero PatronBuilder()
         {
+            System.Console.ForegroundColor = System.ConsoleColor.Magenta;
+            System.Console.WriteLine($"PATRON BUILDER");
             TerceroBuilder terceroBuilder = new TerceroBuilder();
             System.Console.Write("Digite el tipo de identificación (NIT o CC): ");
             var tipoIdentificacion = System.Console.ReadLine();
@@ -81,8 +145,9 @@ namespace Domain.Console
             var tercero = terceroBuilder.Build();
             System.Console.WriteLine("-------------------------------------");
             System.Console.WriteLine(tercero.ToString());
-            System.Console.WriteLine("-----------------PULSE UNA TECLA PARA TERMINAR--------------------");
+            System.Console.WriteLine("-----------------PULSE UNA TECLA PARA CONTINUAR--------------------");
             System.Console.ReadLine();
+            return tercero;
         }
     }
 }
