@@ -4,15 +4,18 @@ using System.Linq;
 
 namespace Domain.Service
 {
-    public class ConsultarEstadoCuentaSistemaLocalSingletonService: IConsultarEstadoCuentaSistemaLocalService
+    /// <summary>
+    /// Se toma la decisión de hacerlo
+    /// </summary>
+    public class ConsultarEstadoCuentaSistemaLocalSingletonService : IConsultarEstadoCuentaSistemaLocalService
     {
         private static ConsultarEstadoCuentaSistemaLocalSingletonService instance;
-        private ConsultarEstadoCuentaSistemaLocalSingletonService(){}
+        private ConsultarEstadoCuentaSistemaLocalSingletonService() { }
         public static ConsultarEstadoCuentaSistemaLocalSingletonService GetInstance()
         {
             if (instance == null)
             {
-                return new ConsultarEstadoCuentaSistemaLocalSingletonService();
+                instance = new ConsultarEstadoCuentaSistemaLocalSingletonService();
             }
             return instance;
         }
