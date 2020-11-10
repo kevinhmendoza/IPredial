@@ -11,12 +11,13 @@ namespace Domain.Console
     {
         static void Main(string[] args)
         {
-            var tercero = PatronBuilder();
+            var tercero = PatronBuilderCrearTercero();
 
-            var recibo1 = PatronFactory(tercero, "Direccion", "C 23 15 41");
+            var recibo1 = PatronFactoryGenerarRecibo(tercero, "Direccion", "C 23 15 41");
             System.Console.ForegroundColor = System.ConsoleColor.White;
             if (recibo1 != null) { recibo1.Pagar(new NotificarPagoMockService(), DateTime.Now, "PSE"); }
-            var recibo2 = PatronFactory(tercero, "Identificacion", "1065654796");
+
+            var recibo2 = PatronFactoryGenerarRecibo(tercero, "Identificacion", "1065654796");
             System.Console.ForegroundColor = System.ConsoleColor.White;
             if (recibo2 != null) { recibo1.Pagar(new NotificarPagoMockService(), DateTime.Now, "TARJETA DE CREDITO"); }
 
@@ -25,11 +26,11 @@ namespace Domain.Console
             System.Console.ReadLine();
         }
 
-        private static ReciboPago PatronFactory(Tercero tercero, string tipo, string filtro)
+        private static ReciboPago PatronFactoryGenerarRecibo(Tercero tercero, string tipo, string filtro)
         {
             System.Console.ForegroundColor = System.ConsoleColor.Yellow;
             System.Console.WriteLine($"PATRON FACTORY");
-            var estadoCuenta = PatronSingleton(tipo, filtro);
+            var estadoCuenta = PatronSingletonConsultarEstadoCuenta(tipo, filtro);
             System.Console.ForegroundColor = System.ConsoleColor.Yellow;
             IReciboPagoFactoryService reciboPagoFactoryService;
             if (!estadoCuenta.Any())
@@ -75,7 +76,7 @@ namespace Domain.Console
             throw new NotImplementedException();
         }
 
-        private static List<ConsultarEstadoCuentaSistemaLocalServiceModelView> PatronSingleton(string tipo, string filtro)
+        private static List<ConsultarEstadoCuentaSistemaLocalServiceModelView> PatronSingletonConsultarEstadoCuenta(string tipo, string filtro)
         {
             System.Console.ForegroundColor = System.ConsoleColor.Green;
             System.Console.WriteLine($"PATRON SINGLETON");
@@ -112,7 +113,7 @@ namespace Domain.Console
             return respuesta.EstadoCuenta;
         }
 
-        private static Tercero PatronBuilder()
+        private static Tercero PatronBuilderCrearTercero()
         {
             System.Console.ForegroundColor = System.ConsoleColor.Magenta;
             System.Console.WriteLine($"PATRON BUILDER");
