@@ -97,20 +97,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Entities\Core.Entities.csproj">
-      <Project>{66342902-3b9d-4ab3-996e-7fadaeb6f029}</Project>
-      <Name>Core.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core.UseCase\Core.UseCase.csproj">
-      <Project>{3cbbff90-d7ab-4c0f-9072-49bc604b4a5a}</Project>
-      <Name>Core.UseCase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Infrastructure.Audit\Infrastructure.Audit.csproj">
-      <Project>{e2eff71e-b747-447f-9ac1-b30c37db547c}</Project>
-      <Name>Infrastructure.Audit</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\202009170306575_InitialCreate.resx">
       <DependentUpon>202009170306575_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
