@@ -10,7 +10,7 @@ namespace Domain
             return string.Join(",", VigenciasPagar);
         }
 
-        protected override string GetTipo()
+        public override string GetTipo()
         {
             return "Recibo de pago multiple";
         }
