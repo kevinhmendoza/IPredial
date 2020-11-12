@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\ITerceroBuilder.cs" />
     <Compile Include="Builders\TerceroBuilder.cs" />
     <Compile Include="Contracts\IConsultarEstadoCuentaSistemaLocalService.cs" />
     <Compile Include="Contracts\IReciboPagoFactoryService.cs" />

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Builders
+﻿namespace Domain.Builders
 {
-    public class TerceroBuilder
+    public class TerceroBuilder : ITerceroBuilder
     {
         private string TipoIdentificacion;
         private string Identificacion;
@@ -71,7 +65,7 @@ namespace Domain.Builders
         #endregion
 
         /// <summary>
-        /// Construye un nuevo Tercero con la invormación suministrada en el builder
+        /// Construye un nuevo Tercero con la información suministrada en el builder
         /// </summary>
         /// <returns>Tercero</returns>
         public Tercero Build()

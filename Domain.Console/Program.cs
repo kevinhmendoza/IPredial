@@ -112,7 +112,7 @@ namespace Domain.Console
         {
             System.Console.ForegroundColor = System.ConsoleColor.Magenta;
             System.Console.WriteLine($"PATRON BUILDER");
-            TerceroBuilder terceroBuilder = new TerceroBuilder();
+            ITerceroBuilder terceroBuilder = new TerceroBuilder();
             System.Console.Write("Digite el tipo de identificación (NIT o CC): ");
             var tipoIdentificacion = System.Console.ReadLine();
             terceroBuilder.SetTipoIdentificacion(tipoIdentificacion);
@@ -143,6 +143,10 @@ namespace Domain.Console
             System.Console.WriteLine(tercero.ToString());
             System.Console.WriteLine("-----------------PULSE UNA TECLA PARA CONTINUAR--------------------");
             System.Console.ReadLine();
+
+            terceroBuilder.SetNombres("John Patiño").B
+
+
             return tercero;
         }
     }
