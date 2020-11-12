@@ -1,32 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Domain.Pago">
-    <Position X="6.25" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAABAAAAAAA=</HashCode>
-      <FileName>Pago.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Domain.ReciboPago" Collapsed="true">
-    <Position X="2.75" Y="2" Width="1.5" />
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Domain.ReciboPago">
+    <Position X="2.75" Y="1.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AABAgAAAAgAFQAAAAAAAAgJAAAEAUAIAAAEIAAABACg=</HashCode>
       <FileName>ReciboPago.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.ReciboPagoIndividual">
-    <Position X="4.5" Y="3.5" Width="2" />
+    <Position X="5.25" Y="7" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>ReciboPagoIndividual.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.ReciboPagoMultiple">
-    <Position X="1" Y="3.5" Width="2" />
+    <Position X="1.25" Y="7" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ReciboPagoMultiple.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Domain.Service.GenerarReciboPagoIndividualService">
+    <Position X="11.5" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Service\GenerarReciboPagoIndividualService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Domain.Service.GenerarReciboPagoMultipleService">
+    <Position X="8.25" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Service\GenerarReciboPagoMultipleService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Domain.Contracts.IReciboPagoFactoryService">
+    <Position X="9.75" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Contracts\IReciboPagoFactoryService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
