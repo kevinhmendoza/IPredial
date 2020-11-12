@@ -32,13 +32,14 @@ namespace Domain.Console
             System.Console.WriteLine($"PATRON FACTORY");
             var estadoCuenta = PatronSingletonConsultarEstadoCuenta(tipo, filtro);
             System.Console.ForegroundColor = System.ConsoleColor.Yellow;
-            IReciboPagoFactoryService reciboPagoFactoryService;
             if (!estadoCuenta.Any())
             {
                 System.Console.WriteLine($"NO SE ENCONTRO INFORMACIÓN");
                 System.Console.ReadLine();
                 return null;
             }
+
+            IReciboPagoFactoryService reciboPagoFactoryService;
             if (estadoCuenta.Count == 1)
             {
                 reciboPagoFactoryService = new GenerarReciboPagoIndividualService();
