@@ -71,11 +71,6 @@ namespace Domain.Console
             return reciboPago;
         }
 
-        private static IReciboPagoFactoryService GenerarReciboPagoIndividualService()
-        {
-            throw new NotImplementedException();
-        }
-
         private static List<ConsultarEstadoCuentaSistemaLocalServiceModelView> PatronSingletonConsultarEstadoCuenta(string tipo, string filtro)
         {
             System.Console.ForegroundColor = System.ConsoleColor.Green;

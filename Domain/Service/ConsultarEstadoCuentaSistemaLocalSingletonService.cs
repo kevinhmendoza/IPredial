@@ -5,7 +5,8 @@ using System.Linq;
 namespace Domain.Service
 {
     /// <summary>
-    /// Se toma la decisión de hacerlo
+    /// Se toma la decisión de hacerlo singleton ya que cuando se tenga acceso a las credenciales para comunicarse con el web service del sistema local,
+    /// no se tendra que consultar las credenciales cada ves que se solicite un estado de cuenta de un contribuyente
     /// </summary>
     public class ConsultarEstadoCuentaSistemaLocalSingletonService : IConsultarEstadoCuentaSistemaLocalService
     {
