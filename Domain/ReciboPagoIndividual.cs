@@ -9,5 +9,10 @@ namespace Domain
         {
             return VigenciaPagar.ToString();
         }
+
+        protected override string GetTipo()
+        {
+            return "Recibo de pago individual";
+        }
     }
 }

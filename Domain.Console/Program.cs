@@ -51,6 +51,7 @@ namespace Domain.Console
 
             System.Console.WriteLine($"SE GENERO EL RECIBO DE PAGO!!!");
             System.Console.WriteLine($"Numero {reciboPago.Numero}");
+            System.Console.WriteLine($"Tipo {reciboPago.GetTipo()}");
             System.Console.WriteLine($"Identificacion {reciboPago.Identificacion}");
             System.Console.WriteLine($"NombreCompleto {reciboPago.NombreCompleto}");
             System.Console.WriteLine($"Referencia Catastral {reciboPago.ReferenciaCatastral}");
@@ -143,9 +144,6 @@ namespace Domain.Console
             System.Console.WriteLine(tercero.ToString());
             System.Console.WriteLine("-----------------PULSE UNA TECLA PARA CONTINUAR--------------------");
             System.Console.ReadLine();
-
-            terceroBuilder.SetNombres("John Patiño").B
-
 
             return tercero;
         }
