@@ -4,6 +4,7 @@ namespace Domain.Contracts
 {
     public interface IReciboPagoFactoryService
     {
+
         /// <summary>
         /// Con base al estado de cuenta el sistema genera el recibo de pago
         /// </summary>
