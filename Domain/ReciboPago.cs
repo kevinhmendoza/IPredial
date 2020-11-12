@@ -40,6 +40,12 @@ namespace Domain
         protected abstract string GetPeriodos();
 
         /// <summary>
+        /// Retorna el tipo de recibo de pago
+        /// </summary>
+        /// <returns>Tipo de recibo de pago</returns>
+        public abstract string GetTipo();
+
+        /// <summary>
         /// Aplica el pago dependiendo el tipo del recibo
         /// </summary>
         /// <returns>Pago</returns>
