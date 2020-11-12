@@ -63,6 +63,9 @@
     <Content Include="Headspring\LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagramJohnp.cd" />
+    <None Include="ClassDiagramKevin.cd" />
+    <None Include="ClassDiagramSinglenton.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
