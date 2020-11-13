@@ -55,7 +55,7 @@
     <Compile Include="ReciboPago.cs" />
     <Compile Include="ReciboPagoMultiple.cs" />
     <Compile Include="ReciboPagoIndividual.cs" />
-    <Compile Include="Service\ConsultarEstadoCuentaSistemaLocalSingletonService.cs" />
+    <Compile Include="Service\ConsultarEstadoCuentaSingleton.cs" />
     <Compile Include="Service\GenerarReciboPagoMultipleService.cs" />
     <Compile Include="Service\GenerarReciboPagoIndividualService.cs" />
     <Compile Include="Tercero.cs" />

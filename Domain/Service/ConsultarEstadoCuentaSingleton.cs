@@ -8,15 +8,15 @@ namespace Domain.Service
     /// Se toma la decisión de hacerlo singleton ya que cuando se tenga acceso a las credenciales para comunicarse con el web service del sistema local,
     /// no se tendra que consultar las credenciales cada ves que se solicite un estado de cuenta de un contribuyente
     /// </summary>
-    public class ConsultarEstadoCuentaSistemaLocalSingletonService : IConsultarEstadoCuentaSistemaLocalService
+    public class ConsultarEstadoCuentaSingleton : IConsultarEstadoCuentaSistemaLocalService
     {
-        private static ConsultarEstadoCuentaSistemaLocalSingletonService instance;
-        private ConsultarEstadoCuentaSistemaLocalSingletonService() { }
-        public static ConsultarEstadoCuentaSistemaLocalSingletonService GetInstance()
+        private static ConsultarEstadoCuentaSingleton instance;
+        private ConsultarEstadoCuentaSingleton() { }
+        public static ConsultarEstadoCuentaSingleton GetInstance()
         {
             if (instance == null)
             {
-                instance = new ConsultarEstadoCuentaSistemaLocalSingletonService();
+                instance = new ConsultarEstadoCuentaSingleton();
             }
             return instance;
         }

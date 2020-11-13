@@ -78,7 +78,7 @@ namespace Domain.Console
             System.Console.ForegroundColor = System.ConsoleColor.Green;
             System.Console.WriteLine($"PATRON SINGLETON");
             System.Console.WriteLine($"-----------------FILTRO POR {tipo.ToUpper()}: {filtro}--------------------");
-            IConsultarEstadoCuentaSistemaLocalService service = ConsultarEstadoCuentaSistemaLocalSingletonService.GetInstance();
+            IConsultarEstadoCuentaSistemaLocalService service = ConsultarEstadoCuentaSingleton.GetInstance();
             var estadoCuenta = service.ConsultarEstadoCuenta(new ConsultarEstadoCuentaSistemaLocalServiceRequest
             {
                 Filtro = filtro,
