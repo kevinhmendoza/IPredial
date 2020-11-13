@@ -15,7 +15,7 @@ namespace Domain.Contracts
     {
         public void Notificar(Pago pago)
         {
-            Console.WriteLine($"Se aplico el pago del recibo {pago.ReciboPago.GetTipo()} {pago.ReciboPago.Numero} por valor de ${pago.ReciboPago.Total} por {pago.MedioPago}");
+            Console.WriteLine($"Se aplico el pago del {pago.ReciboPago.GetTipo()} {pago.ReciboPago.Numero} por valor de ${pago.ReciboPago.Total} por {pago.MedioPago}");
         }
     }
 }
