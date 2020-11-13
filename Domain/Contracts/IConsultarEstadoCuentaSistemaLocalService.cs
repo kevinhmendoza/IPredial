@@ -16,14 +16,14 @@ namespace Domain.Contracts
 
     public class ConsultarEstadoCuentaSistemaLocalServiceResponse
     {
-        public List<ConsultarEstadoCuentaSistemaLocalServiceModelView> EstadoCuenta { get; set; }
-        public ConsultarEstadoCuentaSistemaLocalServiceResponse(List<ConsultarEstadoCuentaSistemaLocalServiceModelView> estadoCuenta)
+        public List<EstadoCuenta> EstadoCuenta { get; set; }
+        public ConsultarEstadoCuentaSistemaLocalServiceResponse(List<EstadoCuenta> estadoCuenta)
         {
             EstadoCuenta = estadoCuenta;
         }
     }
 
-    public class ConsultarEstadoCuentaSistemaLocalServiceModelView
+    public class EstadoCuenta
     {
         public string ReferenciaCatastral { get; set; }
         public string IdentifiacionPropietario { get; set; }

@@ -72,7 +72,7 @@ namespace Domain.Console
             return reciboPago;
         }
 
-        private static List<ConsultarEstadoCuentaSistemaLocalServiceModelView> PatronSingletonConsultarEstadoCuenta(string tipo, string filtro)
+        private static List<EstadoCuenta> PatronSingletonConsultarEstadoCuenta(string tipo, string filtro)
         {
             System.Console.ForegroundColor = System.ConsoleColor.Green;
             System.Console.WriteLine($"PATRON SINGLETON");

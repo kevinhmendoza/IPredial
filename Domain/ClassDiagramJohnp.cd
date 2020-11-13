@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Domain.Builders.TerceroBuilder">
-    <Position X="5" Y="0.75" Width="3" />
+    <Position X="6.25" Y="2" Width="3" />
     <TypeIdentifier>
       <HashCode>CIAAiAAAAAAIAAAEoGAAAEAAAEAAgIAAABCQAgAAAAI=</HashCode>
       <FileName>Builders\TerceroBuilder.cs</FileName>
@@ -9,14 +9,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Domain.Tercero">
-    <Position X="1.5" Y="0.75" Width="2.5" />
+    <Position X="10.25" Y="2.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AIAAgAAAABAAAQAEgGAAAABAAAAAAAAAABAAAgAAAAI=</HashCode>
       <FileName>Tercero.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Domain.Builders.ITerceroBuilder">
-    <Position X="8.5" Y="1" Width="2.5" />
+    <Position X="3.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>CAAACAAAAAAIAAAAIAAAAEAAAEAAgIAAAACQAAAAAAA=</HashCode>
       <FileName>Builders\ITerceroBuilder.cs</FileName>

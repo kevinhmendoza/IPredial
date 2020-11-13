@@ -11,7 +11,7 @@ namespace Domain.Service
     /// </summary>
     public class GenerarReciboPagoMultipleService : IReciboPagoFactoryService
     {
-        public ReciboPago GenerarReciboPago(Tercero tercero, List<ConsultarEstadoCuentaSistemaLocalServiceModelView> estadoCuenta)
+        public ReciboPago GenerarReciboPago(Tercero tercero, List<EstadoCuenta> estadoCuenta)
         {
             //Aqui se simula que el usuario selecciono las vigencias que desea cancelar
             var estadoDefault = estadoCuenta.FirstOrDefault();

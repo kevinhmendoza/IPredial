@@ -48,11 +48,11 @@ namespace Domain.Service
         }
 
         #region Inicialización del mock
-        private List<ConsultarEstadoCuentaSistemaLocalServiceModelView> InicializarDatos()
+        private List<EstadoCuenta> InicializarDatos()
         {
 
-            var estadoCuenta = new List<ConsultarEstadoCuentaSistemaLocalServiceModelView>();
-            estadoCuenta.Add(new ConsultarEstadoCuentaSistemaLocalServiceModelView
+            var estadoCuenta = new List<EstadoCuenta>();
+            estadoCuenta.Add(new EstadoCuenta
             {
                 IdentifiacionPropietario = "1065654796",
                 AreaConstruida = 225,
@@ -73,7 +73,7 @@ namespace Domain.Service
 
 
             });
-            estadoCuenta.Add(new ConsultarEstadoCuentaSistemaLocalServiceModelView
+            estadoCuenta.Add(new EstadoCuenta
             {
                 IdentifiacionPropietario = "1065654796",
                 AreaConstruida = 230,
@@ -94,7 +94,7 @@ namespace Domain.Service
 
 
             });
-            estadoCuenta.Add(new ConsultarEstadoCuentaSistemaLocalServiceModelView
+            estadoCuenta.Add(new EstadoCuenta
             {
                 IdentifiacionPropietario = "1065654796",
                 AreaConstruida = 230,
@@ -116,7 +116,7 @@ namespace Domain.Service
 
             });
 
-            estadoCuenta.Add(new ConsultarEstadoCuentaSistemaLocalServiceModelView
+            estadoCuenta.Add(new EstadoCuenta
             {
                 IdentifiacionPropietario = "123456789",
                 AreaConstruida = 225,
@@ -137,7 +137,7 @@ namespace Domain.Service
 
 
             });
-            estadoCuenta.Add(new ConsultarEstadoCuentaSistemaLocalServiceModelView
+            estadoCuenta.Add(new EstadoCuenta
             {
                 IdentifiacionPropietario = "123456789",
                 AreaConstruida = 230,
@@ -158,7 +158,7 @@ namespace Domain.Service
 
 
             });
-            estadoCuenta.Add(new ConsultarEstadoCuentaSistemaLocalServiceModelView
+            estadoCuenta.Add(new EstadoCuenta
             {
                 IdentifiacionPropietario = "123456789",
                 AreaConstruida = 230,

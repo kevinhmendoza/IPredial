@@ -11,6 +11,6 @@ namespace Domain.Contracts
         /// <param name="estadoCuenta">estado de cuenta</param>
         /// <param name="tercero">tercero quien genera el recibo de pago</param>
         /// <returns>Recibo de pago</returns>
-        ReciboPago GenerarReciboPago(Tercero tercero, List<ConsultarEstadoCuentaSistemaLocalServiceModelView> estadoCuenta);
+        ReciboPago GenerarReciboPago(Tercero tercero, List<EstadoCuenta> estadoCuenta);
     }
 }

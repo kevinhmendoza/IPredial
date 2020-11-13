@@ -11,7 +11,7 @@ namespace Domain.Service
     /// </summary>
     public class GenerarReciboPagoIndividualService : IReciboPagoFactoryService
     {
-        public ReciboPago GenerarReciboPago(Tercero tercero, List<ConsultarEstadoCuentaSistemaLocalServiceModelView> estadoCuenta)
+        public ReciboPago GenerarReciboPago(Tercero tercero, List<EstadoCuenta> estadoCuenta)
         {
             //Aqui se simula que el usuario da click sobre una vigencia del estado de cuenta
             var vigenciaSeleccionada = estadoCuenta.FirstOrDefault();
