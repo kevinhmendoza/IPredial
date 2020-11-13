@@ -4,7 +4,7 @@ namespace Domain.Contracts
 {
     public interface IConsultarEstadoCuentaSistemaLocalService
     {
-        ConsultarEstadoCuentaSistemaLocalServiceResponse ConsultarEstadoCuenta(ConsultarEstadoCuentaSistemaLocalServiceRequest request);
+        List<EstadoCuenta> ConsultarEstadoCuenta(ConsultarEstadoCuentaSistemaLocalServiceRequest request);
     }
 
     public class ConsultarEstadoCuentaSistemaLocalServiceRequest
@@ -12,15 +12,6 @@ namespace Domain.Contracts
         public string TipoFiltro { get; set; }
         public string Filtro { get; set; }
 
-    }
-
-    public class ConsultarEstadoCuentaSistemaLocalServiceResponse
-    {
-        public List<EstadoCuenta> EstadoCuenta { get; set; }
-        public ConsultarEstadoCuentaSistemaLocalServiceResponse(List<EstadoCuenta> estadoCuenta)
-        {
-            EstadoCuenta = estadoCuenta;
-        }
     }
 
     public class EstadoCuenta

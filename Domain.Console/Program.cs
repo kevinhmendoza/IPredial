@@ -79,12 +79,12 @@ namespace Domain.Console
             System.Console.WriteLine($"PATRON SINGLETON");
             System.Console.WriteLine($"-----------------FILTRO POR {tipo.ToUpper()}: {filtro}--------------------");
             IConsultarEstadoCuentaSistemaLocalService service = ConsultarEstadoCuentaSistemaLocalSingletonService.GetInstance();
-            var respuesta = service.ConsultarEstadoCuenta(new ConsultarEstadoCuentaSistemaLocalServiceRequest
+            var estadoCuenta = service.ConsultarEstadoCuenta(new ConsultarEstadoCuentaSistemaLocalServiceRequest
             {
                 Filtro = filtro,
                 TipoFiltro = tipo
             });
-            foreach (var resultado in respuesta.EstadoCuenta)
+            foreach (var resultado in estadoCuenta)
             {
                 System.Console.WriteLine($"Referencia Catastral {resultado.ReferenciaCatastral}");
                 System.Console.WriteLine($"Identifiacion Propietario {resultado.IdentifiacionPropietario}");
@@ -107,7 +107,7 @@ namespace Domain.Console
             }
             System.Console.WriteLine("-----------------PULSE UNA TECLA PARA CONTINUAR--------------------");
             System.Console.ReadLine();
-            return respuesta.EstadoCuenta;
+            return estadoCuenta;
         }
 
         private static Tercero PatronBuilderCrearTercero()

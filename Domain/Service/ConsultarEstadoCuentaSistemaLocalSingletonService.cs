@@ -25,8 +25,8 @@ namespace Domain.Service
         /// Estamos simulando el llamado a el web service del sistema local
         /// </summary>
         /// <param name="request"></param>
-        /// <returns></returns>
-        public ConsultarEstadoCuentaSistemaLocalServiceResponse ConsultarEstadoCuenta(ConsultarEstadoCuentaSistemaLocalServiceRequest request)
+        /// <returns>Lista de estado de cuenta</returns>
+        public List<EstadoCuenta> ConsultarEstadoCuenta(ConsultarEstadoCuentaSistemaLocalServiceRequest request)
         {
             var listaEstadoCuenta = InicializarDatos();
 
@@ -43,8 +43,7 @@ namespace Domain.Service
                 listaEstadoCuenta = listaEstadoCuenta.Where(t => t.IdentifiacionPropietario == request.Filtro).ToList();
             }
 
-            return new ConsultarEstadoCuentaSistemaLocalServiceResponse(listaEstadoCuenta);
-
+            return listaEstadoCuenta;
         }
 
         #region Inicialización del mock
