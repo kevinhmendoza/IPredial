@@ -39,16 +39,7 @@ namespace Domain.Console
                 return null;
             }
 
-            IReciboPagoFactoryService reciboPagoFactoryService;
-            if (estadoCuenta.Count == 1)
-            {
-                reciboPagoFactoryService = new GenerarReciboPagoIndividualService();
-            }
-            else
-            {
-                reciboPagoFactoryService = new GenerarReciboPagoMultipleService();
-            }
-            var reciboPago = reciboPagoFactoryService.GenerarReciboPago(tercero, estadoCuenta);
+            ReciboPago reciboPago = new FactoryRecibo().GetFactory(tercero, estadoCuenta);
 
             System.Console.WriteLine($"SE GENERO EL RECIBO DE PAGO!!!");
             System.Console.WriteLine($"Numero {reciboPago.Numero}");
@@ -72,6 +63,8 @@ namespace Domain.Console
             System.Console.ReadLine();
             return reciboPago;
         }
+
+       
 
         private static List<EstadoCuenta> PatronSingletonConsultarEstadoCuenta(string tipo, string filtro)
         {
@@ -149,4 +142,6 @@ namespace Domain.Console
             return tercero;
         }
     }
+
+ 
 }
