@@ -19,7 +19,7 @@ namespace Domain.Console
 
             var recibo2 = PatronFactoryGenerarRecibo(tercero, "Identificacion", "1065654796");
             System.Console.ForegroundColor = System.ConsoleColor.White;
-            if (recibo2 != null) { recibo1.Pagar(new NotificarPagoMockService(), DateTime.Now, "TARJETA DE CREDITO"); }
+            if (recibo2 != null) { recibo2.Pagar(new NotificarPagoMockService(), DateTime.Now, "TARJETA DE CREDITO"); }
 
             System.Console.ForegroundColor = System.ConsoleColor.Red;
             System.Console.WriteLine($"FIN PROCESO");
