@@ -64,8 +64,6 @@ namespace Domain.Console
             return reciboPago;
         }
 
-       
-
         private static List<EstadoCuenta> PatronSingletonConsultarEstadoCuenta(string tipo, string filtro)
         {
             System.Console.ForegroundColor = System.ConsoleColor.Green;
