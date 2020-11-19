@@ -5,7 +5,7 @@ namespace Domain.Service
 {
     public class FactoryRecibo
     {
-        public ReciboPago GetFactory(Tercero tercero, List<EstadoCuenta> estadoCuenta)
+        public IReciboPagoFactoryService GetFactory(Tercero tercero, List<EstadoCuenta> estadoCuenta)
         {
             IReciboPagoFactoryService reciboPagoFactoryService;
             if (estadoCuenta.Count == 1)
@@ -16,8 +16,7 @@ namespace Domain.Service
             {
                 reciboPagoFactoryService = new GenerarReciboPagoMultipleService();
             }
-            var reciboPago = reciboPagoFactoryService.GenerarReciboPago(tercero, estadoCuenta);
-            return reciboPago;
+            return reciboPagoFactoryService;
         }
     }
 }

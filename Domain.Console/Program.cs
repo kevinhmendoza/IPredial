@@ -39,7 +39,9 @@ namespace Domain.Console
                 return null;
             }
 
-            ReciboPago reciboPago = new FactoryRecibo().GetFactory(tercero, estadoCuenta);
+            
+            var reciboPagoFactoryService = new FactoryRecibo().GetFactory(tercero, estadoCuenta);
+            var reciboPago = reciboPagoFactoryService.GenerarReciboPago(tercero, estadoCuenta);
 
             System.Console.WriteLine($"SE GENERO EL RECIBO DE PAGO!!!");
             System.Console.WriteLine($"Numero {reciboPago.Numero}");
