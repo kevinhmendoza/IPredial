@@ -5,7 +5,7 @@ namespace Domain.Service
 {
     public class FactoryRecibo
     {
-        public IReciboPagoFactoryService GetFactory(Tercero tercero, List<EstadoCuenta> estadoCuenta)
+        public IReciboPagoFactoryService GetFactory(List<EstadoCuenta> estadoCuenta)
         {
             IReciboPagoFactoryService reciboPagoFactoryService;
             if (estadoCuenta.Count == 1)
