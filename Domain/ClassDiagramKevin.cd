@@ -22,7 +22,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.Service.GenerarReciboPagoIndividualService">
-    <Position X="9.5" Y="4" Width="2.75" />
+    <Position X="15.25" Y="3.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Service\GenerarReciboPagoIndividualService.cs</FileName>
@@ -30,15 +30,22 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Domain.Service.GenerarReciboPagoMultipleService">
-    <Position X="6.25" Y="4" Width="2.75" />
+    <Position X="11.25" Y="3.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Service\GenerarReciboPagoMultipleService.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="Domain.Service.FactoryRecibo">
+    <Position X="8.75" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\FactoryRecibo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="Domain.Contracts.IReciboPagoFactoryService">
-    <Position X="7.75" Y="2.5" Width="2.5" />
+    <Position X="13.5" Y="1.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Contracts\IReciboPagoFactoryService.cs</FileName>
