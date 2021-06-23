@@ -28,7 +28,7 @@ namespace PatronIterator
 
 
 
-            var numeros = new ConcreteAggregate();
+            var numeros = new ConcreteAggregate();           
             numeros[0] = 1;
             numeros[1] = 2;
             numeros[2] = 3;

@@ -1,6 +1,5 @@
 ﻿
 using System.Collections.Generic;
-using Core.UseCase.Contracts;
 using AutoMapper.Configuration;
 using AutoMapper;
 

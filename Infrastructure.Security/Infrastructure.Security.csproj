@@ -119,6 +119,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Entities\Core.Entities.csproj">
+      <Project>{66342902-3B9D-4AB3-996E-7FADAEB6F029}</Project>
+      <Name>Core.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure.System\Infrastructure.System.csproj">
       <Project>{97EB7144-5A65-48C4-9EE8-7F939A7EACA8}</Project>
       <Name>Infrastructure.System</Name>

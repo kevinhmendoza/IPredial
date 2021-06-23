@@ -107,5 +107,19 @@
       <DependentUpon>202009191640264_EliminarRestriccionesTercero.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Entities\Core.Entities.csproj">
+      <Project>{66342902-3B9D-4AB3-996E-7FADAEB6F029}</Project>
+      <Name>Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.UseCase\Core.UseCase.csproj">
+      <Project>{3CBBFF90-D7AB-4C0F-9072-49BC604B4A5A}</Project>
+      <Name>Core.UseCase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Audit\Infrastructure.Audit.csproj">
+      <Project>{E2EFF71E-B747-447F-9AC1-B30C37DB547C}</Project>
+      <Name>Infrastructure.Audit</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

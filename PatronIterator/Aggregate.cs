@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace PatronIterator
 {
     public abstract class Aggregate
-
     {
         public abstract Iterator CrearIterator();
     }
